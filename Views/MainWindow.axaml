@@ -11,44 +11,27 @@
         <vm:MainWindowViewModel/>
     </Design.DataContext>
     
-    <Window.Styles>
-        <Style Selector="Button.HamburgerButton">
-            <Setter Property="Width" Value="28" />
-            <Setter Property="Height" Value="28" />
-            <Setter Property="Background" Value="Transparent" />
-            <Setter Property="Foreground" Value="{DynamicResource ButtonForeground}" />
-            <Setter Property="BorderBrush" Value="Transparent" />
-            <Setter Property="BorderThickness" Value="0" />
-            <Setter Property="CornerRadius" Value="{DynamicResource ControlCornerRadius}" />
-            <Setter Property="HorizontalAlignment" Value="Left" />
-            <Setter Property="VerticalAlignment" Value="Center" />
-            <Setter Property="Template">
-                <ControlTemplate>
-                    <Viewbox Width="44" Height="28">
-                        <Canvas Width="24" Height="24">
-                            <Path Fill="{TemplateBinding Foreground}" Data="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z" />
-                        </Canvas>
-                    </Viewbox>
-                </ControlTemplate>
-            </Setter>
-        </Style>
-    </Window.Styles>
-    
-    <Grid ColumnDefinitions="Auto,*" Background="Red">
-        <!-- Hamburger Menu -->
-        <Grid Width="244" Background="Blue">
-            <Grid RowDefinitions="Auto,*">
-                <!-- Hamburger Header -->
-                <Grid Grid.Row="0" Height="40" Background="Black">
-                    <StackPanel Orientation="Horizontal">
-                        <Button Background="Red" Foreground="White"  Classes="HamburgerButton" />
-                    </StackPanel>
-                </Grid>
-                <!-- Hamburger Menu Panel Items -->
-                <Grid Grid.Row="1" Background="Green">
-                    
-                </Grid>
-            </Grid>
-        </Grid>
+    <Grid RowDefinitions="Auto,*" Background="White">
+        <!--Header Menu-->
+        <Grid  Background="#353F47" Height="60">
+           <Grid Margin="50 0" ColumnDefinitions="Auto,*,Auto">
+               <StackPanel Orientation="Horizontal">
+                   <TextBlock Margin="0 0 10 0" FontSize="15" FontWeight="Light" VerticalAlignment="Center" Foreground="White">
+                       Загрузка
+                   </TextBlock>
+                   <TextBlock Margin="0 0 10 0" FontSize="15" FontWeight="Light" VerticalAlignment="Center" Foreground="White">
+                       Работа с архивами
+                   </TextBlock>
+                   <TextBlock Margin="0 0 10 0" FontSize="15" FontWeight="Light" VerticalAlignment="Center" Foreground="White">
+                       Работа с картами
+                   </TextBlock>
+               </StackPanel>
+               <StackPanel Grid.Column="2" Orientation="Horizontal">
+                   <TextBlock Margin="0 0 10 0" FontSize="15" FontWeight="Light" VerticalAlignment="Center" Foreground="White">
+                       Петров Б.Ю. :
+                   </TextBlock>
+               </StackPanel>
+           </Grid>
+       </Grid>
     </Grid>
 </Window>
