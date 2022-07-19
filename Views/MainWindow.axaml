@@ -1,0 +1,54 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:VEGASTAR.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="VEGASTAR.Views.MainWindow"
+        Title="Title">
+    
+    <Design.DataContext>
+        <vm:MainWindowViewModel/>
+    </Design.DataContext>
+    
+    <Window.Styles>
+        <Style Selector="Button.HamburgerButton">
+            <Setter Property="Width" Value="28" />
+            <Setter Property="Height" Value="28" />
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="Foreground" Value="{DynamicResource ButtonForeground}" />
+            <Setter Property="BorderBrush" Value="Transparent" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="CornerRadius" Value="{DynamicResource ControlCornerRadius}" />
+            <Setter Property="HorizontalAlignment" Value="Left" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="Template">
+                <ControlTemplate>
+                    <Viewbox Width="44" Height="28">
+                        <Canvas Width="24" Height="24">
+                            <Path Fill="{TemplateBinding Foreground}" Data="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z" />
+                        </Canvas>
+                    </Viewbox>
+                </ControlTemplate>
+            </Setter>
+        </Style>
+    </Window.Styles>
+    
+    <Grid ColumnDefinitions="Auto,*" Background="Red">
+        <!-- Hamburger Menu -->
+        <Grid Width="244" Background="Blue">
+            <Grid RowDefinitions="Auto,*">
+                <!-- Hamburger Header -->
+                <Grid Grid.Row="0" Height="40" Background="Black">
+                    <StackPanel Orientation="Horizontal">
+                        <Button Background="Red" Foreground="White"  Classes="HamburgerButton" />
+                    </StackPanel>
+                </Grid>
+                <!-- Hamburger Menu Panel Items -->
+                <Grid Grid.Row="1" Background="Green">
+                    
+                </Grid>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>
