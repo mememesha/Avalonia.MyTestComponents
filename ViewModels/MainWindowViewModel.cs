@@ -17,8 +17,6 @@ namespace VEGASTAR.ViewModels
             GoNext = ReactiveCommand.CreateFromObservable(
                 () => Router.Navigate.Execute(new AdisLocalStorageViewModel(this))
             );
-            
-            this.Log().Info("Test");
         }
     }
 }

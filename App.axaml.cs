@@ -1,6 +1,7 @@
 using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
+using ReactiveUI;
 using Serilog;
 using VEGASTAR.ViewModels;
 using VEGASTAR.Views;
@@ -18,26 +19,16 @@ namespace VEGASTAR
         {
             if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
             {
-                desktop.Exit += DesktopOnExit;
-                desktop.ShutdownRequested += DesktopOnShutdownRequested;
-                    
                 desktop.MainWindow = new MainWindow
                 {
                     DataContext = new MainWindowViewModel(),
                 };
+
+                RxApp.DefaultExceptionHandler = new GlobalErrorHandler();
             }
 
             base.OnFrameworkInitializationCompleted();
         }
-
-        private void DesktopOnShutdownRequested(object? sender, ShutdownRequestedEventArgs e)
-        {
-            Log.CloseAndFlush();
-        }
-
-        private void DesktopOnExit(object? sender, ControlledApplicationLifetimeExitEventArgs e)
-        {
-            Log.CloseAndFlush();
-        }
+        
     }
 }
