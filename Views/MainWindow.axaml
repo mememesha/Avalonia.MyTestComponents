@@ -3,35 +3,53 @@
         xmlns:vm="using:VEGASTAR.ViewModels"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="550"
+        mc:Ignorable="d" d:DesignWidth="1300" d:DesignHeight="800"
         x:Class="VEGASTAR.Views.MainWindow"
+        TransparencyLevelHint="AcrylicBlur"
+        ExtendClientAreaToDecorationsHint="True"
+        WindowStartupLocation="CenterOwner"
+        Icon="avares://VEGASTAR/Assets/AppIcons/favicon.ico"
         Title="Title">
     
     <Design.DataContext>
         <vm:MainWindowViewModel/>
     </Design.DataContext>
     
-    <Grid RowDefinitions="Auto,*" Background="White">
-        <!--Header Menu-->
-        <Grid  Background="#353F47" Height="60">
-           <Grid Margin="50 0" ColumnDefinitions="Auto,*,Auto">
-               <StackPanel Orientation="Horizontal">
-                   <TextBlock FontSize="17" FontWeight="Light" FontFamily="/Assets/Fonts/Roboto-Light.ttf#Roboto" Margin="0 0 10 0" VerticalAlignment="Center" Foreground="White">
-                       Загрузка
-                   </TextBlock>
-                   <TextBlock FontSize="17" FontWeight="Light" FontFamily="/Assets/Fonts/Roboto-Light.ttf#Roboto" Margin="0 0 10 0" VerticalAlignment="Center" Foreground="White">
-                       Архивы
-                   </TextBlock>
-                   <TextBlock FontSize="17" FontWeight="Light" FontFamily="/Assets/Fonts/Roboto-Light.ttf#Roboto" Margin="0 0 10 0" VerticalAlignment="Center" Foreground="White">
-                       Карты
-                   </TextBlock>
-               </StackPanel>
-               <StackPanel Grid.Column="2" Orientation="Horizontal">
-                   <TextBlock FontSize="17" FontWeight="Light" FontFamily="/Assets/Fonts/Roboto-Light.ttf#Roboto" Margin="0 0 10 0" VerticalAlignment="Center" Foreground="White">
-                       Петров Б.Ю. :
-                   </TextBlock>
-               </StackPanel>
-           </Grid>
-       </Grid>
-    </Grid>
+    <Panel>
+        <ExperimentalAcrylicBorder IsHitTestVisible="False">
+            <ExperimentalAcrylicBorder.Material>
+                <ExperimentalAcrylicMaterial
+                    BackgroundSource="Digger"
+                    TintColor="#FAFFFD"
+                    TintOpacity="1"
+                    MaterialOpacity="0.30" />
+            </ExperimentalAcrylicBorder.Material>
+        </ExperimentalAcrylicBorder>
+        
+        <Panel Margin="0 30 0 0">
+            <Grid RowDefinitions="Auto,*">
+                <!--Header Menu-->
+                <Grid  Background="#2D3047" Height="55">
+                    <Grid Margin="50 0" ColumnDefinitions="Auto,*,Auto">
+                        <StackPanel Orientation="Horizontal">
+                            <Button Classes="Menu">
+                                Загрузка
+                            </Button>
+                            <Button Classes="Menu">
+                                Архивы
+                            </Button>
+                            <Button Classes="Menu">
+                                Карты
+                            </Button>
+                        </StackPanel>
+                        <StackPanel Grid.Column="2" Orientation="Horizontal">
+                            <TextBlock FontSize="17" Margin="0 0 10 0" VerticalAlignment="Center" Foreground="White">
+                                Петров Б.Ю. :
+                            </TextBlock>
+                        </StackPanel>
+                    </Grid>
+                </Grid>
+            </Grid>
+        </Panel>
+    </Panel>
 </Window>
