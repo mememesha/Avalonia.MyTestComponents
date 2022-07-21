@@ -3,7 +3,7 @@
         xmlns:vm="using:VEGASTAR.ViewModels"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="550"
         x:Class="VEGASTAR.Views.MainWindow"
         Title="Title">
     
@@ -16,18 +16,18 @@
         <Grid  Background="#353F47" Height="60">
            <Grid Margin="50 0" ColumnDefinitions="Auto,*,Auto">
                <StackPanel Orientation="Horizontal">
-                   <TextBlock Margin="0 0 10 0" FontSize="15" FontWeight="Light" VerticalAlignment="Center" Foreground="White">
+                   <TextBlock FontSize="17" FontWeight="Light" FontFamily="/Assets/Fonts/Roboto-Light.ttf#Roboto" Margin="0 0 10 0" VerticalAlignment="Center" Foreground="White">
                        Загрузка
                    </TextBlock>
-                   <TextBlock Margin="0 0 10 0" FontSize="15" FontWeight="Light" VerticalAlignment="Center" Foreground="White">
-                       Работа с архивами
+                   <TextBlock FontSize="17" FontWeight="Light" FontFamily="/Assets/Fonts/Roboto-Light.ttf#Roboto" Margin="0 0 10 0" VerticalAlignment="Center" Foreground="White">
+                       Архивы
                    </TextBlock>
-                   <TextBlock Margin="0 0 10 0" FontSize="15" FontWeight="Light" VerticalAlignment="Center" Foreground="White">
-                       Работа с картами
+                   <TextBlock FontSize="17" FontWeight="Light" FontFamily="/Assets/Fonts/Roboto-Light.ttf#Roboto" Margin="0 0 10 0" VerticalAlignment="Center" Foreground="White">
+                       Карты
                    </TextBlock>
                </StackPanel>
                <StackPanel Grid.Column="2" Orientation="Horizontal">
-                   <TextBlock Margin="0 0 10 0" FontSize="15" FontWeight="Light" VerticalAlignment="Center" Foreground="White">
+                   <TextBlock FontSize="17" FontWeight="Light" FontFamily="/Assets/Fonts/Roboto-Light.ttf#Roboto" Margin="0 0 10 0" VerticalAlignment="Center" Foreground="White">
                        Петров Б.Ю. :
                    </TextBlock>
                </StackPanel>
