@@ -3,6 +3,7 @@
         xmlns:vm="using:VEGASTAR.ViewModels"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:rxui="clr-namespace:Avalonia.ReactiveUI;assembly=Avalonia.ReactiveUI"
         mc:Ignorable="d" d:DesignWidth="1300" d:DesignHeight="800"
         x:Class="VEGASTAR.Views.MainWindow"
         TransparencyLevelHint="AcrylicBlur"
@@ -32,7 +33,7 @@
                 <Grid  Background="#2D3047" Height="55">
                     <Grid Margin="50 0" ColumnDefinitions="Auto,*,Auto">
                         <StackPanel Orientation="Horizontal">
-                            <Button Classes="Menu">
+                            <Button Command="{Binding GoNext}" Classes="Menu">
                                 Загрузка
                             </Button>
                             <Button Classes="Menu">
@@ -49,6 +50,13 @@
                         </StackPanel>
                     </Grid>
                 </Grid>
+                <rxui:RoutedViewHost Grid.Row="1" Router="{Binding Router}">
+                    <rxui:RoutedViewHost.DefaultContent>
+                        <TextBlock Text="Default content"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center" />
+                    </rxui:RoutedViewHost.DefaultContent>
+                </rxui:RoutedViewHost>
             </Grid>
         </Panel>
     </Panel>

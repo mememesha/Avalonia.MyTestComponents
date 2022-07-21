@@ -5,6 +5,7 @@ using VEGASTAR.ViewModels;
 
 namespace VEGASTAR
 {
+    
     public class ViewLocator : IDataTemplate
     {
         public IControl Build(object data)
