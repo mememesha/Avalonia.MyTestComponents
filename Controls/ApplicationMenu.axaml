@@ -2,7 +2,107 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             xmlns:appMenuBar="clr-namespace:VEGASTAR.ViewModels.AppMenuBar"
+             xmlns:i="clr-namespace:Projektanker.Icons.Avalonia;assembly=Projektanker.Icons.Avalonia"
+             Background="{Binding FallbackValue=#2D3047}"
+             mc:Ignorable="d" d:DesignWidth="1000" d:DesignHeight="55"
              x:Class="VEGASTAR.Controls.ApplicationMenu">
-    
+
+    <UserControl.DataContext>
+        <appMenuBar:AppMenuViewModel />
+    </UserControl.DataContext>
+
+    <UniformGrid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <ListBox
+            Margin="100 0 50 0"
+            Background="Transparent"
+            BorderBrush="Transparent"
+            VerticalAlignment="Stretch"
+            Items="{Binding BarMenuItems}"
+            SelectedItem="{Binding SelectedMenuItem}"
+            ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+            <ListBox.Styles>
+                <Style Selector="ListBoxItem">
+                    <Setter Property="Background" Value="Transparent" />
+                    <Setter Property="MinWidth" Value="150" />
+                    <Setter Property="BorderBrush" Value="Transparent" />
+                    <Setter Property="BorderThickness" Value="0" />
+                    <Setter Property="HorizontalContentAlignment" Value="Center" />
+                    <Setter Property="VerticalContentAlignment" Value="Center" />
+                    <Setter Property="Template">
+                        <ControlTemplate>
+                            <Grid x:Name="ItemContainer">
+                                <i:Icon Foreground="{Binding #Caption.Foreground}" Margin="10 0" HorizontalAlignment="Left" FontSize="24" Value="{Binding Icon}" />
+                                <TextBlock 
+                                    x:Name="Caption"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    FontSize="{TemplateBinding}"
+                                    FontFamily="{TemplateBinding}"
+                                    Foreground="{TemplateBinding}"
+                                    Text="{Binding Caption}" />
+                                <Rectangle VerticalAlignment="Bottom" x:Name="FocusLine"
+                                           Fill="{TemplateBinding}" HorizontalAlignment="Stretch" Height="5" />
+                            </Grid>
+                        </ControlTemplate>
+                    </Setter>
+                </Style>
+
+                <!--Item Container-->
+                <Style Selector="ListBoxItem:pointerover /template/ Grid#ItemContainer">
+                    <Setter Property="Background" Value="#20589FD9" />
+                </Style>
+                <Style Selector="ListBoxItem:selected /template/ Grid#ItemContainer">
+                    <Setter Property="Background" Value="#20589FD9" />
+                </Style>
+                <Style Selector="ListBoxItem:selected:focus /template/ Grid#ItemContainer">
+                    <Setter Property="Background" Value="#20589FD9" />
+                </Style>
+                <Style Selector="ListBoxItem:selected:pointerover /template/ Grid#ItemContainer">
+                    <Setter Property="Background" Value="#20589FD9" />
+                </Style>
+                <Style Selector="ListBoxItem:selected:focus:pointerover /template/ Grid#ItemContainer">
+                    <Setter Property="Background" Value="#20589FD9" />
+                </Style>
+                <!--Focus Line-->
+                <Style Selector="ListBoxItem:pointerover /template/ Rectangle#FocusLine">
+                    <Setter Property="Fill" Value="Transparent" />
+                </Style>
+                <Style Selector="ListBoxItem:selected /template/ Rectangle#FocusLine">
+                    <Setter Property="Fill" Value="#3772FF" />
+                </Style>
+                <Style Selector="ListBoxItem:selected:focus /template/ Rectangle#FocusLine">
+                    <Setter Property="Fill" Value="#3772FF" />
+                </Style>
+                <Style Selector="ListBoxItem:selected:pointerover /template/ Rectangle#FocusLine">
+                    <Setter Property="Fill" Value="#3772FF" />
+                </Style>
+                <!--Text-->
+                <Style Selector="TextBlock#Caption">
+                    <Setter Property="FontFamily" Value="avares://VEGASTAR/Assets/Fonts/Roboto-Light.ttf#Roboto" />
+                    <Setter Property="Foreground" Value="#CCCCCC" />
+                    <Setter Property="FontSize" Value="17"/>
+                </Style>
+                <Style Selector="ListBoxItem:pointerover /template/ TextBlock#Caption">
+                    <Setter Property="Foreground" Value="White" />
+                    <Setter Property="FontSize" Value="17.5"/>
+                </Style>
+                <Style Selector="ListBoxItem:selected /template/ TextBlock#Caption">
+                    <Setter Property="Foreground" Value="White" />
+                </Style>
+                <Style Selector="ListBoxItem:selected:focus /template/ TextBlock#Caption">
+                    <Setter Property="Foreground" Value="White" />
+                    <Setter Property="FontFamily" Value="avares://VEGASTAR/Assets/Fonts/Roboto-Medium.ttf#Roboto" />
+                </Style>
+                <Style Selector="ListBoxItem:selected:pointerover /template/ TextBlock#Caption">
+                    <Setter Property="FontSize" Value="17"/>
+                </Style>
+            </ListBox.Styles>
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel Orientation="Horizontal" />
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+        </ListBox>
+    </UniformGrid>
 </UserControl>

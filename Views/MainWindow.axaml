@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:rxui="clr-namespace:Avalonia.ReactiveUI;assembly=Avalonia.ReactiveUI"
+        xmlns:controls="clr-namespace:VEGASTAR.Controls"
         mc:Ignorable="d" d:DesignWidth="1300" d:DesignHeight="800"
         x:Class="VEGASTAR.Views.MainWindow"
         TransparencyLevelHint="AcrylicBlur"
@@ -23,38 +24,21 @@
                     BackgroundSource="Digger"
                     TintColor="#FAFFFD"
                     TintOpacity="1"
-                    MaterialOpacity="0.30" />
+                    MaterialOpacity="0.86" />
             </ExperimentalAcrylicBorder.Material>
         </ExperimentalAcrylicBorder>
         
         <Panel Margin="0 30 0 0">
             <Grid RowDefinitions="Auto,*">
-                <!--Header Menu-->
-                <Grid  Background="#2D3047" Height="55">
-                    <Grid Margin="50 0" ColumnDefinitions="Auto,*,Auto">
-                        <StackPanel Orientation="Horizontal">
-                            <Button Command="{Binding GoNext}" Classes="Menu">
-                                Загрузка
-                            </Button>
-                            <Button Classes="Menu">
-                                Архивы
-                            </Button>
-                            <Button Classes="Menu">
-                                Карты
-                            </Button>
-                        </StackPanel>
-                        <StackPanel Grid.Column="2" Orientation="Horizontal">
-                            <TextBlock FontSize="17" Margin="0 0 10 0" VerticalAlignment="Center" Foreground="White">
-                                Петров Б.Ю. :
-                            </TextBlock>
-                        </StackPanel>
-                    </Grid>
-                </Grid>
+                <controls:ApplicationMenu Background="#2D3047" Height="55"/>
+              
                 <rxui:RoutedViewHost Grid.Row="1" Router="{Binding Router}">
                     <rxui:RoutedViewHost.DefaultContent>
-                        <TextBlock Text="Default content"
-                                   HorizontalAlignment="Center"
-                                   VerticalAlignment="Center" />
+                        <StackPanel>
+                            <TextBlock Text="Default content"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center" />
+                        </StackPanel>
                     </rxui:RoutedViewHost.DefaultContent>
                 </rxui:RoutedViewHost>
             </Grid>
