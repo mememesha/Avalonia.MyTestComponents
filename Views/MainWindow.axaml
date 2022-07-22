@@ -22,9 +22,9 @@
             <ExperimentalAcrylicBorder.Material>
                 <ExperimentalAcrylicMaterial
                     BackgroundSource="Digger"
-                    TintColor="#FAFFFD"
+                    TintColor="White"
                     TintOpacity="1"
-                    MaterialOpacity="0.86" />
+                    MaterialOpacity="0.75" />
             </ExperimentalAcrylicBorder.Material>
         </ExperimentalAcrylicBorder>
         

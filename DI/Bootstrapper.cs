@@ -1,5 +1,4 @@
 using Microsoft.Extensions.Configuration;
-using Projektanker.Icons.Avalonia.FontAwesome;
 using ReactiveUI;
 using Splat;
 using Splat.Serilog;
