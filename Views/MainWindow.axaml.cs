@@ -1,3 +1,4 @@
+using System;
 using Avalonia.Markup.Xaml;
 using Avalonia.ReactiveUI;
 using ReactiveUI;
@@ -11,6 +12,14 @@ namespace VEGASTAR.Views
         {
             this.WhenActivated(disposables => { });
             AvaloniaXamlLoader.Load(this);
+            this.Opened+= OnOpened;
         }
+
+        private void OnOpened(object? sender, EventArgs e)
+        {
+            var context = (this.DataContext as MainWindowViewModel);
+            context.Router.Navigate.Execute(new SubRouteUserControlViewModel(context));
+        }
+        
     }
 }

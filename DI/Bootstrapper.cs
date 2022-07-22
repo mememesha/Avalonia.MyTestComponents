@@ -14,6 +14,7 @@ public class Bootstrapper : IEnableLogger
     {
         services.RegisterConstant(AddJsonConfiguration("appsettings.json"));
         services.Register(() => new AdisLocalStorage(), typeof(IViewFor<AdisLocalStorageViewModel>));
+        services.Register(() => new SubRouteUserControl(), typeof(IViewFor<SubRouteUserControlViewModel>));
         services.UseSerilogFullLogger();
         //services.Register<IPlatformService>(() => new PlatformService());  // Call services.Register<T> and pass it lambda that creates instance of your service
         LogHost.Default.Info("Application Starting...");

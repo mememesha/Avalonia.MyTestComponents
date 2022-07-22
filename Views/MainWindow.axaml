@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:rxui="clr-namespace:Avalonia.ReactiveUI;assembly=Avalonia.ReactiveUI"
-        xmlns:controls="clr-namespace:VEGASTAR.Controls"
+        xmlns:i="clr-namespace:Projektanker.Icons.Avalonia;assembly=Projektanker.Icons.Avalonia"
         mc:Ignorable="d" d:DesignWidth="1300" d:DesignHeight="800"
         x:Class="VEGASTAR.Views.MainWindow"
         TransparencyLevelHint="AcrylicBlur"
@@ -29,18 +29,8 @@
         </ExperimentalAcrylicBorder>
         
         <Panel Margin="0 30 0 0">
-            <Grid RowDefinitions="Auto,*">
-                <controls:ApplicationMenu Background="#2D3047" Height="55"/>
-              
-                <rxui:RoutedViewHost Grid.Row="1" Router="{Binding Router}">
-                    <rxui:RoutedViewHost.DefaultContent>
-                        <StackPanel>
-                            <TextBlock Text="Default content"
-                                       HorizontalAlignment="Center"
-                                       VerticalAlignment="Center" />
-                        </StackPanel>
-                    </rxui:RoutedViewHost.DefaultContent>
-                </rxui:RoutedViewHost>
+            <Grid RowDefinitions="*">
+                <rxui:RoutedViewHost Grid.Row="1" Router="{Binding Router}"/>
             </Grid>
         </Panel>
     </Panel>
