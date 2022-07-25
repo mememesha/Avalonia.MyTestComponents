@@ -14,7 +14,6 @@
     
     <ListBox
          x:Name="ListBox"
-         SelectionChanged="SelectingItemsControl_OnSelectionChanged"
          SelectionMode="Single"
          ScrollViewer.VerticalScrollBarVisibility="Disabled" 
          SelectedIndex="0"

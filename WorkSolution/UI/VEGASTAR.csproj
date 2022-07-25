@@ -9,12 +9,13 @@
         <ApplicationIcon>Assets\AppIcons\favicon.ico</ApplicationIcon>
     </PropertyGroup>
     <ItemGroup>
-        <Folder Include="Models\" />
         <AvaloniaResource Include="Assets\**" />
         <None Remove=".gitignore" />
         <None Update="appsettings.json">
             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
         </None>
+        <None Remove="UI\obj\**" />
+        <None Remove="UI\bin\**" />
     </ItemGroup>
     <ItemGroup>
         <!--This helps with theme dll-s trimming.
@@ -46,5 +47,11 @@
     </ItemGroup>
     <ItemGroup>
         <Compile Remove="ViewLocator.cs" />
+        <Compile Remove="UI\obj\**" />
+        <Compile Remove="UI\bin\**" />
+    </ItemGroup>
+    <ItemGroup>
+      <EmbeddedResource Remove="UI\obj\**" />
+      <EmbeddedResource Remove="UI\bin\**" />
     </ItemGroup>
 </Project>

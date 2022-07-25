@@ -7,10 +7,6 @@
              mc:Ignorable="d" d:DesignWidth="500" d:DesignHeight="550" Background="Transparent"
              x:Class="VEGASTAR.Views.AdisLocalStorage">
     
-    <Design.DataContext>
-        <vm:AdisLocalStorageViewModel />
-    </Design.DataContext>
-    
     <Grid>
         <controls:MonthMenu SelectedItem="{Binding SelectedMonth, Mode=TwoWay}"  VerticalAlignment="Top" />
     </Grid>
