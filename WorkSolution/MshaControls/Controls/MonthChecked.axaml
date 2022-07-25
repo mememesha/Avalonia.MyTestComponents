@@ -1,0 +1,116 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:MshaControls.Controls">
+    <Design.PreviewWith>
+        <Border>
+            <local:MonthChecked/>
+        </Border>
+    </Design.PreviewWith>
+
+    <Style Selector="local|MonthChecked">
+        <Setter Property="Items">
+            <Setter.Value>
+                <Binding Path="$self.MonthItems" /> 
+            </Setter.Value>
+        </Setter>
+        <Setter Property="SelectedIndex" Value="0"/>
+        <Setter Property="SelectionMode"  Value="Single"/>
+        <Setter Property="Background"  Value="Transparent"/>
+        <Setter Property="HorizontalAlignment"  Value="Stretch"/>
+        <Setter Property="VerticalAlignment"  Value="Center"/>
+        <Setter Property="Margin" Value="10 0"/>
+        <Setter Property="ScrollViewer.VerticalScrollBarVisibility"  Value="Disabled"/>
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Border Name="border"
+                        ClipToBounds="{TemplateBinding ClipToBounds}"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="{TemplateBinding CornerRadius}">
+                    <ScrollViewer Name="PART_ScrollViewer"
+                                  HorizontalScrollBarVisibility="{TemplateBinding (ScrollViewer.HorizontalScrollBarVisibility)}"
+                                  VerticalScrollBarVisibility="{TemplateBinding (ScrollViewer.VerticalScrollBarVisibility)}"
+                                  
+                                  AllowAutoHide="{TemplateBinding (ScrollViewer.AllowAutoHide)}">
+                        <ItemsPresenter Name="PART_ItemsPresenter"
+                                        Items="{TemplateBinding Items}"
+                                        ItemsPanel="{TemplateBinding ItemsPanel}"
+                                        ItemTemplate="{TemplateBinding ItemTemplate}"
+                                        Margin="{TemplateBinding Padding}"
+                                        VirtualizationMode="{TemplateBinding VirtualizationMode}" />
+                    </ScrollViewer>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+        <Setter Property="ItemsPanel">
+            <Setter.Value>
+                <ItemsPanelTemplate>
+                    <WrapPanel 
+                        ScrollViewer.HorizontalScrollBarVisibility="Disabled" 
+                        ScrollViewer.VerticalScrollBarVisibility="Disabled" 
+                        VerticalAlignment="Center" 
+                        HorizontalAlignment="Center" 
+                        Orientation="Horizontal" />
+                </ItemsPanelTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="ItemTemplate">
+            <Setter.Value>
+                <DataTemplate>
+                    <Border VerticalAlignment="Center" >
+                        <TextBlock VerticalAlignment="Center" Foreground="White" FontSize="16"  Text="{Binding}"/>
+                    </Border>
+                </DataTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style Selector="local|MonthChecked ListBoxItem">
+        <Setter Property="Foreground" Value="Red"/>
+        <Setter Property="BorderThickness" Value="0 2 1 2"/>
+        <Setter Property="Background" Value="#66292e49" />
+        <Setter Property="BorderBrush" Value="Transparent" />
+        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+        <Setter Property="VerticalContentAlignment" Value="Stretch" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <ContentPresenter x:Name="PART_ContentPresenter"
+                                  CornerRadius="{TemplateBinding CornerRadius}"
+                                  ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled"
+                                  Background="{TemplateBinding Background}"
+                                  BorderBrush="#66666666"
+                                  BorderThickness="{TemplateBinding BorderThickness}"
+                                  Content="{TemplateBinding Content}"
+                                  ContentTemplate="{TemplateBinding ContentTemplate}"
+                                  Padding="20 5"
+                                  VerticalAlignment="Center"
+                                  Margin="0 1"
+                                  HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                  VerticalContentAlignment="Center" />
+            </ControlTemplate>
+        </Setter>
+    </Style>
+    <Style Selector="local|MonthChecked ListBoxItem:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+        <Setter Property="Background" Value="#292e49" />
+    </Style>
+    <Style Selector="local|MonthChecked ListBoxItem:selected /template/  ContentPresenter#PART_ContentPresenter">
+        <Setter Property="Background" Value="#292e49" />
+    </Style>
+    <Style Selector="local|MonthChecked ListBoxItem:selected:focus /template/ ContentPresenter#PART_ContentPresenter">
+        <Setter Property="Background" Value="#292e49" />
+    </Style>
+    <Style Selector="local|MonthChecked ListBoxItem:selected:pointerover /template/  ContentPresenter#PART_ContentPresenter">
+        <Setter Property="Background" Value="#292e49" />
+    </Style>
+    <Style Selector="local|MonthChecked ListBoxItem:selected:focus:pointerover /template/  ContentPresenter#PART_ContentPresenter">
+        <Setter Property="Background" Value="#292e49" />
+    </Style>
+    <Style Selector="local|MonthChecked ListBoxItem[Content=Янв.]  ContentPresenter#PART_ContentPresenter">
+        <Setter Property="CornerRadius" Value="15 0 0 15" />
+        <Setter Property="BorderThickness" Value="2 2 1 2" />
+    </Style>
+    <Style Selector="local|MonthChecked ListBoxItem[Content=Дек.]  ContentPresenter#PART_ContentPresenter">
+        <Setter Property="CornerRadius" Value="0 15 15 0" />
+        <Setter Property="BorderThickness" Value="0 2 2 2" />
+    </Style>
+</Styles>

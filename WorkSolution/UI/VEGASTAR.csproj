@@ -54,4 +54,7 @@
       <EmbeddedResource Remove="UI\obj\**" />
       <EmbeddedResource Remove="UI\bin\**" />
     </ItemGroup>
+    <ItemGroup>
+      <ProjectReference Include="..\MshaControls\MshaControls.csproj" />
+    </ItemGroup>
 </Project>

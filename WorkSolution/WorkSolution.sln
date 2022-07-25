@@ -2,7 +2,7 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VEGASTAR", "UI\VEGASTAR.csproj", "{177CA0EE-FDE1-4AF7-94ED-7B37C8308195}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Msha.Controls", "Msha.Controls\Msha.Controls.csproj", "{099D2F07-B070-430A-A49B-FFA692F194B2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MshaControls", "MshaControls\MshaControls.csproj", "{099D2F07-B070-430A-A49B-FFA692F194B2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

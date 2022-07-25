@@ -26,13 +26,12 @@ public class AdisLocalStorageViewModel : ReactiveObject, IActivatableViewModel, 
 
     public string UrlPathSegment { get; } = Guid.NewGuid().ToString().Substring(0, 5);
 
-
     [Reactive]
     public string SelectedMonth
     {
         get;
         set;
-    }
+    } 
 
     public ViewModelActivator Activator { get; }
 }

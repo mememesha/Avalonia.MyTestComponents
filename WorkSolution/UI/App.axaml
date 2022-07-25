@@ -11,5 +11,6 @@
             <Setter Property="FontFamily" Value="avares://VEGASTAR/Assets/Fonts/Font Awesome 6 Free-Regular-400.otf" />
         </Style>
         <StyleInclude Source="avares://VEGASTAR/Themes/Buttons.axaml" />
+        <StyleInclude Source="avares://MshaControls/Controls/MonthChecked.axaml" />
     </Application.Styles>
 </Application>

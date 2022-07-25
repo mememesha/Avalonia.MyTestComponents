@@ -3,11 +3,13 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:vm="clr-namespace:VEGASTAR.ViewModels"
-             xmlns:controls="clr-namespace:VEGASTAR.Controls"
-             mc:Ignorable="d" d:DesignWidth="500" d:DesignHeight="550" Background="Transparent"
+             xmlns:msch="clr-namespace:MshaControls.Controls;assembly=MshaControls"
+             mc:Ignorable="d" d:DesignWidth="1000" d:DesignHeight="550" Background="Transparent"
              x:Class="VEGASTAR.Views.AdisLocalStorage">
-    
+    <Design.DataContext>
+        <vm:AdisLocalStorageViewModel/>
+    </Design.DataContext>
     <Grid>
-        <controls:MonthMenu SelectedItem="{Binding SelectedMonth, Mode=TwoWay}"  VerticalAlignment="Top" />
+        <msch:MonthChecked SelectedIndex="0" VerticalAlignment="Top" SelectedItem="{Binding SelectedMonth}" />
     </Grid>
 </UserControl>
