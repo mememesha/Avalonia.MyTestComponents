@@ -2,15 +2,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:appMenuBar="clr-namespace:VEGASTAR.ViewModels.AppMenuBar"
              xmlns:i="clr-namespace:Projektanker.Icons.Avalonia;assembly=Projektanker.Icons.Avalonia"
-             Background="{Binding FallbackValue=#2D3047}"
-             mc:Ignorable="d" d:DesignWidth="1000" d:DesignHeight="55"
+             mc:Ignorable="d" d:DesignWidth="1000" d:DesignHeight="55" Background="#000000"
              x:Class="VEGASTAR.Controls.ApplicationMenu">
 
-    <UserControl.DataContext>
-        <appMenuBar:AppMenuViewModel />
-    </UserControl.DataContext>
     <Border BoxShadow="2 4 4 #40000000">
         <Grid
             ColumnDefinitions="100,Auto,*,Auto,100"

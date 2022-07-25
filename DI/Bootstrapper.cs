@@ -7,8 +7,8 @@ using VEGASTAR.Views;
 
 namespace VEGASTAR.DI;
 
-public class Bootstrapper : IEnableLogger 
-{  
+public class Bootstrapper : IEnableLogger
+{
     public static void Register(IMutableDependencyResolver services, IReadonlyDependencyResolver resolver)
     {
         services.RegisterConstant(AddJsonConfiguration("appsettings.json"));
@@ -26,4 +26,4 @@ public class Bootstrapper : IEnableLogger
             .Build();
         return configuration;
     }
-} 
+}

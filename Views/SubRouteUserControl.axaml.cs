@@ -1,6 +1,4 @@
 ﻿using System;
-using Avalonia;
-using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
 using Avalonia.ReactiveUI;
 using ReactiveUI;
@@ -13,9 +11,8 @@ public partial class SubRouteUserControl : ReactiveUserControl<SubRouteUserContr
     public SubRouteUserControl()
     {
         this.WhenActivated(disposables => { });
-        this.Initialized+= OnInitialized;
+        Initialized += OnInitialized;
         AvaloniaXamlLoader.Load(this);
-        
     }
 
     private void OnInitialized(object? sender, EventArgs e)

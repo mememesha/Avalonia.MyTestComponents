@@ -4,7 +4,6 @@ using System.Reactive.Concurrency;
 using ReactiveUI;
 using Splat;
 
-
 namespace VEGASTAR;
 
 public class GlobalErrorHandler : IObserver<Exception>, IEnableLogger
@@ -12,13 +11,13 @@ public class GlobalErrorHandler : IObserver<Exception>, IEnableLogger
     public void OnNext(Exception value)
     {
         if (Debugger.IsAttached) Debugger.Break();
-        
+
         RxApp.MainThreadScheduler.Schedule(() =>
         {
             var errorType = value.GetType();
-            string message = value.Message;
+            var message = value.Message;
             this.Log().Fatal(value, $"{errorType}: {message}");
-        }) ;
+        });
     }
 
     public void OnError(Exception error)
@@ -28,7 +27,7 @@ public class GlobalErrorHandler : IObserver<Exception>, IEnableLogger
         RxApp.MainThreadScheduler.Schedule(() =>
         {
             var errorType = error.GetType();
-            string message = error.Message;
+            var message = error.Message;
             this.Log().Fatal(error, $"{errorType}: {message}");
         });
     }
@@ -36,9 +35,6 @@ public class GlobalErrorHandler : IObserver<Exception>, IEnableLogger
     public void OnCompleted()
     {
         if (Debugger.IsAttached) Debugger.Break();
-        RxApp.MainThreadScheduler.Schedule(() =>
-        {
-            
-        });
+        RxApp.MainThreadScheduler.Schedule(() => { });
     }
 }

@@ -2,14 +2,10 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <Design.PreviewWith>
         <Border Padding="20">
-            <Grid>
-                
-            </Grid>
+            <Grid />
         </Border>
     </Design.PreviewWith>
 
-     <!-- Menu Item Style -->
-     <Style Selector="ListBoxItem">
-     
-     </Style>
+    <!-- Menu Item Style -->
+    <Style Selector="ListBoxItem" />
 </Styles>
