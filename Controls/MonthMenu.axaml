@@ -1,0 +1,95 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:i="clr-namespace:Avalonia.Xaml.Interactivity;assembly=Avalonia.Xaml.Interactivity"
+             xmlns:ia="clr-namespace:Avalonia.Xaml.Interactions.Core;assembly=Avalonia.Xaml.Interactions"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:VEGASTAR.ViewModels"
+             mc:Ignorable="d" d:DesignHeight="100" d:DesignWidth="1435" Background="Transparent"
+             x:Class="VEGASTAR.Controls.MonthMenu">
+    
+    <UserControl.DataContext>
+        <vm:MonthMenuControlViewModel/>
+    </UserControl.DataContext>
+    
+    <ListBox
+         x:Name="ListBox"
+         SelectionChanged="SelectingItemsControl_OnSelectionChanged"
+         SelectionMode="Single"
+         ScrollViewer.VerticalScrollBarVisibility="Disabled" 
+         SelectedIndex="0"
+         SelectedItem="{Binding SelectedItem}"
+         Background="Transparent"
+         HorizontalAlignment="Stretch"
+         VerticalAlignment="Center"
+         Margin="10 0"
+         Items="{Binding MonthItems}" >
+            <ListBox.Styles>
+                <Style Selector="ListBoxItem">
+                    <Setter Property="Foreground" Value="White"/>
+                    <Setter Property="BorderThickness" Value="0 2 1 2"/>
+                    <Setter Property="Background" Value="#66292e49" />
+                    <Setter Property="BorderBrush" Value="Transparent" />
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                    <Setter Property="VerticalContentAlignment" Value="Stretch" />
+                    <Setter Property="Template">
+                        <ControlTemplate>
+                            <ContentPresenter x:Name="PART_ContentPresenter"
+                                              CornerRadius="{TemplateBinding CornerRadius}"
+                                              ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled"
+                                              Background="{TemplateBinding Background}"
+                                              BorderBrush="#66666666"
+                                              BorderThickness="{TemplateBinding BorderThickness}"
+                                              Content="{TemplateBinding Content}"
+                                              ContentTemplate="{TemplateBinding ContentTemplate}"
+                                              Padding="20 5"
+                                              VerticalAlignment="Center"
+                                              Margin="0 1"
+                                              HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                              VerticalContentAlignment="Center" />
+                        </ControlTemplate>
+                    </Setter>
+                </Style>
+                
+                <Style Selector="ListBoxItem:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+                    <Setter Property="Background" Value="#292e49" />
+                </Style>
+                <Style Selector="ListBoxItem:selected /template/  ContentPresenter#PART_ContentPresenter">
+                    <Setter Property="Background" Value="#292e49" />
+                </Style>
+                <Style Selector="ListBoxItem:selected:focus /template/ ContentPresenter#PART_ContentPresenter">
+                    <Setter Property="Background" Value="#292e49" />
+                </Style>
+                <Style Selector="ListBoxItem:selected:pointerover /template/  ContentPresenter#PART_ContentPresenter">
+                    <Setter Property="Background" Value="#292e49" />
+                </Style>
+                <Style Selector="ListBoxItem:selected:focus:pointerover /template/  ContentPresenter#PART_ContentPresenter">
+                    <Setter Property="Background" Value="#292e49" />
+                </Style>
+                <Style Selector="ListBoxItem[Content=Янв.]  ContentPresenter#PART_ContentPresenter">
+                    <Setter Property="CornerRadius" Value="15 0 0 15" />
+                    <Setter Property="BorderThickness" Value="2 2 1 2" />
+                </Style>
+                <Style Selector="ListBoxItem[Content=Дек.]  ContentPresenter#PART_ContentPresenter">
+                    <Setter Property="CornerRadius" Value="0 15 15 0" />
+                    <Setter Property="BorderThickness" Value="0 2 2 2" />
+                </Style>
+            </ListBox.Styles>
+            
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Border VerticalAlignment="Center" >
+                        <TextBlock VerticalAlignment="Center" Foreground="White" FontSize="16"  Text="{Binding}"/>
+                    </Border>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+            
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel  ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Disabled" VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Horizontal" />
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+        </ListBox>
+   
+    
+</UserControl>
