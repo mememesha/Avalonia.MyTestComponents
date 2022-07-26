@@ -1,5 +1,8 @@
 using System;
+using System.Linq;
 using System.Reactive.Disposables;
+using MshaControls.Controls;
+using MshaControls.Models;
 using ReactiveUI;
 using ReactiveUI.Fody.Helpers;
 
@@ -9,7 +12,7 @@ public class AdisLocalStorageViewModel : ReactiveObject, IActivatableViewModel, 
 {
     #region private Properties
 
-    
+    private Month? _month;
 
     #endregion
 
@@ -21,10 +24,10 @@ public class AdisLocalStorageViewModel : ReactiveObject, IActivatableViewModel, 
     public ViewModelActivator Activator { get; }
     
     [Reactive]
-    public string? SelectedMonth
+    public Month? SelectedMonth
     {
-        get;
-        set;
+        get => _month;
+        set => this.RaiseAndSetIfChanged(ref _month, value);
     } 
     
     [Reactive]
@@ -42,6 +45,8 @@ public class AdisLocalStorageViewModel : ReactiveObject, IActivatableViewModel, 
     {
         HostScreen = screen;
         Activator = new ViewModelActivator();
+        SelectedMonth = MonthChecked.MonthItems.ElementAt(5);
+        
         this.WhenActivated(disposables =>
         {
             Disposable

@@ -10,10 +10,9 @@
     <Style Selector="local|MonthChecked">
         <Setter Property="Items">
             <Setter.Value>
-                <Binding Path="$self.MonthItems" /> 
+                <Binding Source="{x:Static local:MonthChecked.MonthItems}" /> 
             </Setter.Value>
         </Setter>
-        <Setter Property="SelectedIndex" Value="0"/>
         <Setter Property="SelectionMode"  Value="Single"/>
         <Setter Property="Background"  Value="Transparent"/>
         <Setter Property="HorizontalAlignment"  Value="Stretch"/>
@@ -104,11 +103,11 @@
     <Style Selector="local|MonthChecked ListBoxItem:selected:focus:pointerover /template/  ContentPresenter#PART_ContentPresenter">
         <Setter Property="Background" Value="#292e49" />
     </Style>
-    <Style Selector="local|MonthChecked ListBoxItem[Content=Янв.]  ContentPresenter#PART_ContentPresenter">
+    <Style Selector="local|MonthChecked ListBoxItem:nth-child(1)  ContentPresenter#PART_ContentPresenter">
         <Setter Property="CornerRadius" Value="15 0 0 15" />
         <Setter Property="BorderThickness" Value="2 2 1 2" />
     </Style>
-    <Style Selector="local|MonthChecked ListBoxItem[Content=Дек.]  ContentPresenter#PART_ContentPresenter">
+    <Style Selector="local|MonthChecked  ListBoxItem:nth-last-child(1)  ContentPresenter#PART_ContentPresenter">
         <Setter Property="CornerRadius" Value="0 15 15 0" />
         <Setter Property="BorderThickness" Value="0 2 2 2" />
     </Style>

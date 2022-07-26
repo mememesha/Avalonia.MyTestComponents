@@ -1,7 +1,6 @@
-using System.Collections.ObjectModel;
-using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Styling;
+using MshaControls.Models;
 
 namespace MshaControls.Controls;
 
@@ -9,19 +8,19 @@ public class MonthChecked:ListBox,IStyleable
 {
     Type IStyleable.StyleKey => typeof(MonthChecked);
     
-    public ObservableCollection<string> MonthItems { get; } = new()
+    public static List<Month> MonthItems { get; } = new()
     {
-        "Янв.",
-        "Фев.",
-        "Мар.",
-        "Апр.",
-        "Май.",
-        "Июн.",
-        "Июл.",
-        "Авг.",
-        "Сен.",
-        "Окт.",
-        "Ноя.",
-        "Дек."
+        new Month("Янв."),
+        new Month("Фев."),
+        new Month("Мар."),
+        new Month("Апр."),
+        new Month("Май."),
+        new Month("Июн."),
+        new Month("Июл."),
+        new Month("Авг."),
+        new Month("Сен."),
+        new Month("Окт."),
+        new Month("Ноя."),
+        new Month("Дек.")
     };
 }

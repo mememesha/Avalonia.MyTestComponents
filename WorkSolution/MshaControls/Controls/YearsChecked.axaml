@@ -14,7 +14,6 @@
         <Setter Property="VerticalAlignment"  Value="Center"/>
         <Setter Property="Margin" Value="0 0"/>
         <Setter Property="ScrollViewer.VerticalScrollBarVisibility"  Value="Disabled"/>
-        <Setter Property="SelectedIndex" Value="0"/>
         <Setter Property="Items">
             <Setter.Value>
                 <Binding Path="$self.ChooseItems" /> 
@@ -31,7 +30,6 @@
                     <ScrollViewer Name="PART_ScrollViewer"
                                   HorizontalScrollBarVisibility="{TemplateBinding (ScrollViewer.HorizontalScrollBarVisibility)}"
                                   VerticalScrollBarVisibility="{TemplateBinding (ScrollViewer.VerticalScrollBarVisibility)}"
-                                  
                                   AllowAutoHide="{TemplateBinding (ScrollViewer.AllowAutoHide)}">
                         <ItemsPresenter Name="PART_ItemsPresenter"
                                         Items="{TemplateBinding Items}"
@@ -64,6 +62,7 @@
                 </DataTemplate>
             </Setter.Value>
         </Setter>
+        <Setter Property="SelectedIndex" Value="0"/>
     </Style>
     <Style Selector="local|YearsChecked ListBoxItem">
         <Setter Property="BorderThickness" Value="0 2 1 2"/>

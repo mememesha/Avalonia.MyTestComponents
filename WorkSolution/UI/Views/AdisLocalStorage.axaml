@@ -7,7 +7,7 @@
              x:Class="VEGASTAR.Views.AdisLocalStorage">
     
     <Grid RowDefinitions="Auto,Auto" Margin="100 0" HorizontalAlignment="Center" VerticalAlignment="Top" >
-        <msch:MonthChecked Grid.Row="0" SelectedItem="{Binding SelectedMonth}" />
-        <msch:YearsChecked Margin="10 4 0 0"  Grid.Row="1" HorizontalAlignment="Center" SelectedItem="{Binding SelectedYear, Mode=TwoWay}" />
+        <msch:MonthChecked x:Name="MonthCheckedControl" Grid.Row="0" SelectedItem="{Binding SelectedMonth, Mode= TwoWay}" />
+        <msch:YearsChecked Margin="10 4 0 0"  Grid.Row="1" HorizontalAlignment="Center" SelectedItem="{Binding SelectedYear}" />
     </Grid>
 </UserControl>
