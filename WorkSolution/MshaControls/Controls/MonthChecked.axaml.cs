@@ -6,6 +6,12 @@ namespace MshaControls.Controls;
 
 public class MonthChecked:ListBox,IStyleable
 {
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        SelectedIndex = DateTime.Now.Month -1;
+    }
+
     Type IStyleable.StyleKey => typeof(MonthChecked);
     
     public static List<Month> MonthItems { get; } = new()

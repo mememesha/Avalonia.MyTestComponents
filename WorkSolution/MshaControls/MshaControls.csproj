@@ -22,4 +22,10 @@
       <Resource Include="Controls\MonthChecked.axaml" />
       <Resource Include="Controls\YearsChecked.axaml" />
     </ItemGroup>
+
+    <ItemGroup>
+      <Compile Update="Controls\YearsChecked.axaml.cs">
+        <DependentUpon>YearsChecked.axaml</DependentUpon>
+      </Compile>
+    </ItemGroup>
 </Project>

@@ -8,7 +8,7 @@
              x:Class="VEGASTAR.Views.SubRouteUserControl">
 
     <Grid RowDefinitions="Auto,*">
-        <controls:ApplicationMenu Height="65">
+        <controls:ApplicationMenu Margin="0" ZIndex="1" Height="65">
             <controls:ApplicationMenu.Background>
                 <LinearGradientBrush StartPoint="50%,0%" EndPoint="50%,100%">
                     <LinearGradientBrush.GradientStops>
@@ -19,7 +19,7 @@
                 </LinearGradientBrush>
             </controls:ApplicationMenu.Background>
         </controls:ApplicationMenu>
-        <rxui:RoutedViewHost Grid.Row="1" Router="{Binding Router}" />
+        <rxui:RoutedViewHost Margin="0 -5 0 0" ZIndex="0" Grid.Row="1" Router="{Binding Router}" />
     </Grid>
 
 </UserControl>

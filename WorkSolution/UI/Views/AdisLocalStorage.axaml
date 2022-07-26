@@ -3,11 +3,23 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:msch="clr-namespace:MshaControls.Controls;assembly=MshaControls"
+             xmlns:reactiveUi="http://reactiveui.net"
              mc:Ignorable="d" d:DesignWidth="1200" d:DesignHeight="550" Background="Transparent"
              x:Class="VEGASTAR.Views.AdisLocalStorage">
     
-    <Grid RowDefinitions="Auto,Auto" Margin="100 0" HorizontalAlignment="Center" VerticalAlignment="Top" >
-        <msch:MonthChecked x:Name="MonthCheckedControl" Grid.Row="0" SelectedItem="{Binding SelectedMonth, Mode= TwoWay}" />
-        <msch:YearsChecked Margin="10 4 0 0"  Grid.Row="1" HorizontalAlignment="Center" SelectedItem="{Binding SelectedYear}" />
-    </Grid>
+    <Border
+        Margin="20 0"
+        ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+        ScrollViewer.VerticalScrollBarVisibility="Disabled" 
+        VerticalAlignment="Stretch"
+        Background="White">
+        
+        <Grid RowDefinitions="Auto,*">
+            <Grid RowDefinitions="Auto,Auto" HorizontalAlignment="Center" VerticalAlignment="Top" >
+                <msch:MonthChecked x:Name="MonthCheckedControl" Margin="0 5 0 0" Grid.Row="0" SelectedItem="{Binding SelectedMonth}" />
+                <msch:YearsChecked Margin="10 4 0 0"  Grid.Row="1" HorizontalAlignment="Center" SelectedItem="{Binding SelectedYear}" />
+            </Grid>
+            <reactiveUi:RoutedViewHost Router="{Binding Router}" Grid.Row="1" />
+        </Grid>
+    </Border>
 </UserControl>
