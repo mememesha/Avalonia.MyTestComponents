@@ -3,23 +3,23 @@
         xmlns:local="clr-namespace:MshaControls.Controls">
     <Design.PreviewWith>
         <Border>
-            <local:MonthChecked/>
+            <local:YearsChecked/>
         </Border>
     </Design.PreviewWith>
 
-    <Style Selector="local|MonthChecked">
-        <Setter Property="Items">
-            <Setter.Value>
-                <Binding Path="$self.MonthItems" /> 
-            </Setter.Value>
-        </Setter>
-        <Setter Property="SelectedIndex" Value="0"/>
+    <Style Selector="local|YearsChecked">
         <Setter Property="SelectionMode"  Value="Single"/>
         <Setter Property="Background"  Value="Transparent"/>
         <Setter Property="HorizontalAlignment"  Value="Stretch"/>
         <Setter Property="VerticalAlignment"  Value="Center"/>
         <Setter Property="Margin" Value="0 0"/>
         <Setter Property="ScrollViewer.VerticalScrollBarVisibility"  Value="Disabled"/>
+        <Setter Property="SelectedIndex" Value="0"/>
+        <Setter Property="Items">
+            <Setter.Value>
+                <Binding Path="$self.ChooseItems" /> 
+            </Setter.Value>
+        </Setter>
         <Setter Property="Template">
             <ControlTemplate>
                 <Border Name="border"
@@ -65,7 +65,7 @@
             </Setter.Value>
         </Setter>
     </Style>
-    <Style Selector="local|MonthChecked ListBoxItem">
+    <Style Selector="local|YearsChecked ListBoxItem">
         <Setter Property="BorderThickness" Value="0 2 1 2"/>
         <Setter Property="Background" Value="#66292e49" />
         <Setter Property="BorderBrush" Value="Transparent" />
@@ -81,7 +81,7 @@
                                   BorderThickness="{TemplateBinding BorderThickness}"
                                   Content="{TemplateBinding Content}"
                                   ContentTemplate="{TemplateBinding ContentTemplate}"
-                                  Padding="20 5"
+                                  Padding="26 5"
                                   VerticalAlignment="Center"
                                   Margin="0 1"
                                   HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
@@ -89,26 +89,26 @@
             </ControlTemplate>
         </Setter>
     </Style>
-    <Style Selector="local|MonthChecked ListBoxItem:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+    <Style Selector="local|YearsChecked ListBoxItem:pointerover /template/ ContentPresenter#PART_ContentPresenter">
         <Setter Property="Background" Value="#DD292e49" />
     </Style>
-    <Style Selector="local|MonthChecked ListBoxItem:selected /template/  ContentPresenter#PART_ContentPresenter">
+    <Style Selector="local|YearsChecked ListBoxItem:selected /template/  ContentPresenter#PART_ContentPresenter">
         <Setter Property="Background" Value="#292e49" />
     </Style>
-    <Style Selector="local|MonthChecked ListBoxItem:selected:focus /template/ ContentPresenter#PART_ContentPresenter">
+    <Style Selector="local|YearsChecked ListBoxItem:selected:focus /template/ ContentPresenter#PART_ContentPresenter">
         <Setter Property="Background" Value="#292e49" />
     </Style>
-    <Style Selector="local|MonthChecked ListBoxItem:selected:pointerover /template/  ContentPresenter#PART_ContentPresenter">
+    <Style Selector="local|YearsChecked ListBoxItem:selected:pointerover /template/  ContentPresenter#PART_ContentPresenter">
         <Setter Property="Background" Value="#292e49" />
     </Style>
-    <Style Selector="local|MonthChecked ListBoxItem:selected:focus:pointerover /template/  ContentPresenter#PART_ContentPresenter">
+    <Style Selector="local|YearsChecked ListBoxItem:selected:focus:pointerover /template/  ContentPresenter#PART_ContentPresenter">
         <Setter Property="Background" Value="#292e49" />
     </Style>
-    <Style Selector="local|MonthChecked ListBoxItem[Content=Янв.]  ContentPresenter#PART_ContentPresenter">
+    <Style Selector="local|YearsChecked ListBoxItem:nth-child(1)  ContentPresenter#PART_ContentPresenter">
         <Setter Property="CornerRadius" Value="15 0 0 15" />
         <Setter Property="BorderThickness" Value="2 2 1 2" />
     </Style>
-    <Style Selector="local|MonthChecked ListBoxItem[Content=Дек.]  ContentPresenter#PART_ContentPresenter">
+    <Style Selector="local|YearsChecked ListBoxItem:nth-child(2)  ContentPresenter#PART_ContentPresenter">
         <Setter Property="CornerRadius" Value="0 15 15 0" />
         <Setter Property="BorderThickness" Value="0 2 2 2" />
     </Style>

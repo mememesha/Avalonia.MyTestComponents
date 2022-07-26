@@ -9,7 +9,7 @@ public class MonthChecked:ListBox,IStyleable
 {
     Type IStyleable.StyleKey => typeof(MonthChecked);
     
-    public ObservableCollection<string> MonthItems { get; } = new ObservableCollection<string>
+    public ObservableCollection<string> MonthItems { get; } = new()
     {
         "Янв.",
         "Фев.",

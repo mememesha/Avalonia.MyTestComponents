@@ -2,6 +2,7 @@
 using System.Collections.ObjectModel;
 using System.Linq;
 using ReactiveUI;
+using VEGASTAR.ViewModels.AdisLocalStorage;
 using VEGASTAR.ViewModels.AppMenuBar;
 
 namespace VEGASTAR.ViewModels;
@@ -20,10 +21,6 @@ public class SubRouteUserControlViewModel : ReactiveObject, IScreen, IRoutableVi
             {
                 Caption = "Загрузка", Icon = "fa-solid fa-bars-progress",
                 RouteViewModel = typeof(AdisLocalStorageViewModel)
-            },
-            new()
-            {
-                Caption = "Архивы", Icon = "fa-thin fa-box-archive", RouteViewModel = typeof(AdisLocalStorageViewModel)
             },
             new()
             {

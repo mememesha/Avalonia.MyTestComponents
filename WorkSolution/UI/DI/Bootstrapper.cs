@@ -3,6 +3,7 @@ using ReactiveUI;
 using Splat;
 using Splat.Serilog;
 using VEGASTAR.ViewModels;
+using VEGASTAR.ViewModels.AdisLocalStorage;
 using VEGASTAR.Views;
 
 namespace VEGASTAR.DI;

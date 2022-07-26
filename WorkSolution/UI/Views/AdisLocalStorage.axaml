@@ -2,14 +2,12 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:vm="clr-namespace:VEGASTAR.ViewModels"
              xmlns:msch="clr-namespace:MshaControls.Controls;assembly=MshaControls"
-             mc:Ignorable="d" d:DesignWidth="1000" d:DesignHeight="550" Background="Transparent"
+             mc:Ignorable="d" d:DesignWidth="1200" d:DesignHeight="550" Background="Transparent"
              x:Class="VEGASTAR.Views.AdisLocalStorage">
-    <Design.DataContext>
-        <vm:AdisLocalStorageViewModel/>
-    </Design.DataContext>
-    <Grid>
-        <msch:MonthChecked SelectedIndex="0" VerticalAlignment="Top" SelectedItem="{Binding SelectedMonth}" />
+    
+    <Grid RowDefinitions="Auto,Auto" Margin="100 0" HorizontalAlignment="Center" VerticalAlignment="Top" >
+        <msch:MonthChecked Grid.Row="0" SelectedItem="{Binding SelectedMonth}" />
+        <msch:YearsChecked Margin="10 4 0 0"  Grid.Row="1" HorizontalAlignment="Center" SelectedItem="{Binding SelectedYear, Mode=TwoWay}" />
     </Grid>
 </UserControl>

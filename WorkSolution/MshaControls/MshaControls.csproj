@@ -20,5 +20,6 @@
     <ItemGroup>
       <None Remove="Controls\MonthChecked.axaml" />
       <Resource Include="Controls\MonthChecked.axaml" />
+      <Resource Include="Controls\YearsChecked.axaml" />
     </ItemGroup>
 </Project>

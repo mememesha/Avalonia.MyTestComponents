@@ -2,6 +2,7 @@ using Avalonia.Markup.Xaml;
 using Avalonia.ReactiveUI;
 using ReactiveUI;
 using VEGASTAR.ViewModels;
+using VEGASTAR.ViewModels.AdisLocalStorage;
 
 namespace VEGASTAR.Views;
 

@@ -1,37 +1,54 @@
 using System;
-using System.Collections.ObjectModel;
 using System.Reactive.Disposables;
 using ReactiveUI;
 using ReactiveUI.Fody.Helpers;
 
-namespace VEGASTAR.ViewModels;
+namespace VEGASTAR.ViewModels.AdisLocalStorage;
 
 public class AdisLocalStorageViewModel : ReactiveObject, IActivatableViewModel, IRoutableViewModel
 {
-    public AdisLocalStorageViewModel(IScreen screen)
-    {
-        HostScreen = screen;
-        
-        Activator = new ViewModelActivator();
-        this.WhenActivated((CompositeDisposable disposables) =>
-        {
-            /* handle activation */
-            Disposable
-                .Create(() => { /* handle deactivation */ })
-                .DisposeWith(disposables);
-        });
-    }
+    #region private Properties
+
+    
+
+    #endregion
+
+    #region public Properties
 
     public IScreen HostScreen { get; }
 
     public string UrlPathSegment { get; } = Guid.NewGuid().ToString().Substring(0, 5);
-
+    public ViewModelActivator Activator { get; }
+    
     [Reactive]
-    public string SelectedMonth
+    public string? SelectedMonth
+    {
+        get;
+        set;
+    } 
+    
+    [Reactive]
+    public int? SelectedYear
     {
         get;
         set;
     } 
 
-    public ViewModelActivator Activator { get; }
+    #endregion
+
+    #region Constructor
+
+    public AdisLocalStorageViewModel(IScreen screen)
+    {
+        HostScreen = screen;
+        Activator = new ViewModelActivator();
+        this.WhenActivated(disposables =>
+        {
+            Disposable
+                .Create(() => {})
+                .DisposeWith(disposables);
+        });
+    }
+
+    #endregion
 }
