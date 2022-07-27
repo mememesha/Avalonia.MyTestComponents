@@ -4,36 +4,23 @@ using MshaControls.Controls;
 using MshaControls.Models;
 using ReactiveUI;
 using ReactiveUI.Fody.Helpers;
+// ReSharper disable All
 
 namespace VEGASTAR.ViewModels.AdisLocalStorage;
 
 public class AdisLocalStorageViewModel : ReactiveObject, IActivatableViewModel, IRoutableViewModel,IScreen
 {
-    
-    
     #region public Properties
-
     public IScreen HostScreen { get; }
     public RoutingState Router { get; } = new RoutingState();
     public string UrlPathSegment { get; } = Guid.NewGuid().ToString().Substring(0, 5);
     public ViewModelActivator Activator { get; }
-    
-    private Month _selectedMonth;
-    public Month SelectedMonth
-    {
-        get { return _selectedMonth; }
-        private set
-        {
-            this.RaiseAndSetIfChanged(ref _selectedMonth, value);
-        }
-    }
+
+    [Reactive]
+    public Month? SelectedMonth { get; set; }
     
     [Reactive]
-    public int? SelectedYear
-    {
-        get;
-        set;
-    } 
+    public int? SelectedYear { get; set; } 
 
     #endregion
 
@@ -50,14 +37,16 @@ public class AdisLocalStorageViewModel : ReactiveObject, IActivatableViewModel, 
                 .DisposeWith(disposables);
         });
 
-        this.WhenAnyValue(c => c.SelectedMonth, c => c.SelectedYear).Subscribe(t => Navigate(t));
+        this.WhenAnyValue(c => c.SelectedMonth, c => c.SelectedYear).Subscribe(Navigate);
     }
 
-    private void Navigate((Month, int?) valueTuple)
+    private void Navigate((Month?, int?) @params)
     {
-        if (valueTuple.Item1 != null && valueTuple.Item2 != null)
+        var (month, item2) = @params;
+        
+        if (month != null && item2 != null)
         {
-            Router.Navigate.Execute(new DarchViewModel(this, MonthChecked.MonthItems.IndexOf(SelectedMonth), SelectedYear));
+            Router.Navigate.Execute(new DarchViewModel(this, MonthChecked.MonthItems.IndexOf(SelectedMonth!), SelectedYear));
         }
         else
         {
