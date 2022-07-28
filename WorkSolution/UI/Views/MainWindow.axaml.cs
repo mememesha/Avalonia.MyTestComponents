@@ -18,6 +18,6 @@ public partial class MainWindow : ReactiveWindow<MainWindowViewModel>
     private void OnOpened(object? sender, EventArgs e)
     {
         var context = DataContext as MainWindowViewModel;
-        context.Router.Navigate.Execute(new SubRouteUserControlViewModel(context));
+        context!.Router.Navigate.Execute(new SubRouteUserControlViewModel(context));
     }
 }

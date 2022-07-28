@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:msch="clr-namespace:MshaControls.Controls;assembly=MshaControls"
              xmlns:reactiveUi="http://reactiveui.net"
+             xmlns:hm="clr-namespace:MshaControls.HamburgerMenu;assembly=MshaControls"
              mc:Ignorable="d" d:DesignWidth="1200" d:DesignHeight="550" Background="Transparent"
              x:Class="VEGASTAR.Views.AdisLocalStorage">
     
@@ -13,6 +14,7 @@
             <msch:YearsChecked Margin="10 4 0 0"  Grid.Row="1" HorizontalAlignment="Center" SelectedItem="{Binding SelectedYear}" />
         </Grid>
         <reactiveUi:RoutedViewHost Grid.Column="1" Router="{Binding Router}" Grid.Row="1" />
-       
+        
+        <hm:HamburgerMenu Grid.Column="0" Grid.Row="1" Background="Red" MenuIconColor="Black"/>
     </Grid>
 </UserControl>

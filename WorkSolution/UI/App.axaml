@@ -13,6 +13,6 @@
         <StyleInclude Source="avares://VEGASTAR/Themes/Buttons.axaml" />
         <StyleInclude Source="avares://MshaControls/Controls/MonthChecked.axaml" />
         <StyleInclude Source="avares://MshaControls/Controls/YearsChecked.axaml" />
-       
+        <StyleInclude Source="avares://MshaControls/HamburgerMenu/HamburgerMenu.axaml" />
     </Application.Styles>
 </Application>
