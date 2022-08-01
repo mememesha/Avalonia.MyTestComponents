@@ -3,11 +3,32 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:controls="clr-namespace:VEGASTAR.Controls"
+             xmlns:controlSamples="clr-namespace:ControlSamples;assembly=MshaControls"
+             xmlns:system="clr-namespace:System;assembly=System.Runtime"
              mc:Ignorable="d" d:DesignWidth="1300" d:DesignHeight="800"
              x:Class="VEGASTAR.Views.SubRouteUserControl">
 
-    <Grid RowDefinitions="Auto,*">
+    <UserControl.Resources>
+        <system:Double x:Key="TabItemPipeThickness" >3</system:Double>
+    </UserControl.Resources>
+    
+    <UserControl.Styles>
+        <Style Selector="controlSamples|HamburgerMenu TabItem > TextBlock">
+            <Setter Property="FontFamily" Value="{StaticResource RobotoLight}"/>
+            <Setter Property="FontSize" Value="18"/>
+        </Style>
+    </UserControl.Styles>
+    
+    <controlSamples:HamburgerMenu 
+        ContentOpeningForegraund="WhiteSmoke"
+        ContentClosingForegraund="#2d3047">
+        <TabItem Header="Загрузка" IsSelected="True">
+            <rxui:RoutedViewHost Margin="0 -5 0 0" ZIndex="0" Router="{Binding Router}" />
+        </TabItem>
+        <TabItem Header="Карты" />
+    </controlSamples:HamburgerMenu>
+    
+    <!--<Grid RowDefinitions="Auto,*">     
         <controls:ApplicationMenu Margin="0" ZIndex="1" Height="65">
             <controls:ApplicationMenu.Background>
                 <LinearGradientBrush StartPoint="50%,0%" EndPoint="50%,100%">
@@ -19,7 +40,5 @@
                 </LinearGradientBrush>
             </controls:ApplicationMenu.Background>
         </controls:ApplicationMenu>
-        <rxui:RoutedViewHost Margin="0 -5 0 0" ZIndex="0" Grid.Row="1" Router="{Binding Router}" />
-    </Grid>
-
+    </Grid>-->
 </UserControl>

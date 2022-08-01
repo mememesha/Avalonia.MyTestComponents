@@ -1,168 +1,94 @@
-﻿using System.Collections.Specialized;
-using Avalonia;
-using Avalonia.Collections;
+﻿using Avalonia;
 using Avalonia.Controls;
+using Avalonia.Controls.Primitives;
+using Avalonia.Data;
 using Avalonia.Media;
 
-namespace MshaControls.HamburgerMenu
+namespace ControlSamples
 {
-    public class HamburgerMenu: ContentControl
+    public class HamburgerMenu : TabControl
     {
-        /// <summary>
-        /// style key of this control
-        /// </summary>
-        public Type StyleKey => typeof(HamburgerMenu);
+        private SplitView? _splitView;
+        private ToggleButton? _homeButton;
+        
+        public static readonly StyledProperty<IBrush> PaneBackgroundProperty =
+            SplitView.PaneBackgroundProperty.AddOwner<HamburgerMenu>();
 
-        /// <summary>
-        /// get/sets HamburgerMenuItems as content
-        /// </summary>
-        public new AvaloniaList<HamburgerMenuItem> Content
+        public IBrush PaneBackground
         {
-            get { return (AvaloniaList<HamburgerMenuItem>)GetValue(ContentProperty); }
-            set { SetValue(ContentProperty, value); }
+            get => GetValue(PaneBackgroundProperty);
+            set => SetValue(PaneBackgroundProperty, value);
         }
 
-        /// <summary>
-        /// <see cref="Content"/>
-        /// </summary>
-        public new static readonly StyledProperty<AvaloniaList<HamburgerMenuItem>> ContentProperty =
-            AvaloniaProperty.Register<HamburgerMenu, AvaloniaList<HamburgerMenuItem>>(nameof(Content));
+        public static readonly StyledProperty<IBrush> ContentBackgroundProperty =
+            AvaloniaProperty.Register<HamburgerMenu, IBrush>(nameof(ContentBackground));
 
-        /// <summary>
-        /// get/set IsOpen
-        /// </summary>
-        public bool IsOpen
+        public IBrush ContentBackground
         {
-            get { return (bool)GetValue(IsOpenProperty); }
-            set { SetValue(IsOpenProperty, value); }
+            get => GetValue(ContentBackgroundProperty);
+            set => SetValue(ContentBackgroundProperty, value);
         }
 
-        /// <summary>
-        /// <see cref="IsOpen"/>
-        /// </summary>
-        public static readonly StyledProperty<bool> IsOpenProperty =
-            AvaloniaProperty.Register<HamburgerMenu, bool>(nameof(IsOpen), defaultValue:false);
+        public static readonly StyledProperty<IBrush> XForegraundProperty =
+            AvaloniaProperty.Register<HamburgerMenu, IBrush>(nameof(XForegraund), new SolidColorBrush(Colors.Black));
 
-        /// <summary>
-        /// get/set MenuIconColor
-        /// </summary>
-        public IBrush MenuIconColor
+        public IBrush XForegraund
         {
-            get { return (IBrush)GetValue(MenuIconColorProperty); }
-            set { SetValue(MenuIconColorProperty, value); }
+            get => GetValue(XForegraundProperty);
+            set => SetValue(XForegraundProperty, value);
+        }
+        
+        public static readonly StyledProperty<IBrush> ContentOpeningForegraundProperty =
+            AvaloniaProperty.Register<HamburgerMenu, IBrush>(nameof(ContentOpeningForegraund), new SolidColorBrush(Colors.Black));
+
+        public IBrush ContentOpeningForegraund
+        {
+            get => GetValue(ContentOpeningForegraundProperty);
+            set => SetValue(ContentOpeningForegraundProperty, value);
+        }
+        
+        public static readonly StyledProperty<IBrush> ContentClosingForegraundProperty =
+            AvaloniaProperty.Register<HamburgerMenu, IBrush>(nameof(ContentClosingForegraund), new SolidColorBrush(Colors.Black));
+
+        public IBrush ContentClosingForegraund
+        {
+            get => GetValue(ContentClosingForegraundProperty);
+            set => SetValue(ContentClosingForegraundProperty, value);
+        }
+        
+        public static readonly StyledProperty<int> ExpandedModeThresholdWidthProperty =
+            AvaloniaProperty.Register<HamburgerMenu, int>(nameof(ExpandedModeThresholdWidth), 1008);
+
+        public int ExpandedModeThresholdWidth
+        {
+            get => GetValue(ExpandedModeThresholdWidthProperty);
+            set => SetValue(ExpandedModeThresholdWidthProperty, value);
+        }
+      
+        protected override void OnApplyTemplate(TemplateAppliedEventArgs e)
+        {
+            base.OnApplyTemplate(e);
+            _splitView = e.NameScope.Find<SplitView>("PART_NavigationPane");
+            _homeButton = e.NameScope.Find<ToggleButton>("HamburgerMenuButton");
+            _splitView.PaneClosing += SplitViewOnPaneClosed;
+            _splitView.PaneOpened += SplitViewOnPaneOpened;
         }
 
-        /// <summary>
-        /// <see cref="MenuIconColor"/>
-        /// </summary>
-        public static readonly StyledProperty<IBrush> MenuIconColorProperty =
-            AvaloniaProperty.Register<HamburgerMenu, IBrush>(nameof(MenuIconColor));
-
-        /// <summary>
-        /// get/set SelectionIndicatorColor
-        /// </summary>
-        public IBrush SelectionIndicatorColor
+        private void SplitViewOnPaneOpened(object? sender, EventArgs e)
         {
-            get { return (IBrush)GetValue(SelectionIndicatorColorProperty); }
-            set { SetValue(SelectionIndicatorColorProperty, value); }
+            XForegraund = ContentOpeningForegraund;
         }
 
-        /// <summary>
-        /// <see cref="SelectionIndicatorColor"/>
-        /// </summary>
-        public static readonly StyledProperty<IBrush> SelectionIndicatorColorProperty =
-            AvaloniaProperty.Register<HamburgerMenu, IBrush>(nameof(SelectionIndicatorColor));
-
-        /// <summary>
-        /// get/set MenuItemForeground
-        /// </summary>
-        public IBrush MenuItemForeground
+        private async void SplitViewOnPaneClosed(object? sender, EventArgs e)
         {
-            get { return (IBrush)GetValue(MenuItemForegroundProperty); }
-            set { SetValue(MenuItemForegroundProperty, value); }
+            XForegraund = ContentClosingForegraund;
         }
 
-        /// <summary>
-        /// <see cref="MenuItemForeground"/>
-        /// </summary>
-        public static readonly StyledProperty<IBrush> MenuItemForegroundProperty =
-            AvaloniaProperty.Register<HamburgerMenu, IBrush>(nameof(MenuItemForeground));
 
-        /// <summary>
-        /// get/set SelectedIndex
-        /// </summary>
-        public int SelectedIndex
+        protected override void OnPropertyChanged<T>(AvaloniaPropertyChangedEventArgs<T> change)
         {
-            get { return (int)GetValue(SelectedIndexProperty); }
-            set { SetValue(SelectedIndexProperty, value); }
-        }
-
-        /// <summary>
-        /// <see cref="SelectedIndex"/>
-        /// </summary>
-        public static readonly StyledProperty<int> SelectedIndexProperty =
-            AvaloniaProperty.Register<HamburgerMenu, int>(nameof(SelectedIndex), defaultValue:0);
-
-        /// <summary>
-        /// get/set the size of the opened menu
-        /// </summary>
-        public double MaximizedSize
-        {
-            get { return (double)GetValue(MaximizedSizeProperty); }
-            set { SetValue(MaximizedSizeProperty, value); }
-        }
-
-        /// <summary>
-        /// <see cref="MaximizedSize"/>
-        /// </summary>
-        public static readonly StyledProperty<double> MaximizedSizeProperty =
-            AvaloniaProperty.Register<HamburgerMenu, double>(nameof(MaximizedSize), defaultValue: 250);
-
-        /// <summary>
-        /// get/set the size of the closed menu
-        /// </summary>
-        public double MinimizedSize
-        {
-            get { return (double)GetValue(MinimizedSizeProperty); }
-            set { SetValue(MinimizedSizeProperty, value); }
-        }
-
-        /// <summary>
-        /// <see cref="MinimizedSize"/>
-        /// </summary>
-        public static readonly StyledProperty<double> MinimizedSizeProperty =
-            AvaloniaProperty.Register<HamburgerMenu, double>(nameof(MinimizedSize), defaultValue: 40d);
-
-        /// <summary>
-        /// initilaize content and collection changed
-        /// </summary>
-        public HamburgerMenu()
-        {
-            Content = new AvaloniaList<HamburgerMenuItem>();
-            Content.CollectionChanged += Content_CollectionChanged;
-        }
-
-        private void Content_CollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
-        {
-            if (e.NewItems != null)
-            {
-                foreach (var item in e.NewItems.OfType<HamburgerMenuItem>())
-                {
-                    item.PropertyChanged += MenuItem_PropertyChanged;
-                }
-            }
-            if (e.OldItems != null)
-            {
-            }
-        }
-
-        private void MenuItem_PropertyChanged(object sender, AvaloniaPropertyChangedEventArgs e)
-        {
-            if (e.Property.Name == "IsSelected")
-            {
-                HamburgerMenuItem menuItem = sender as HamburgerMenuItem;
-                SelectedIndex = Content.IndexOf(menuItem);
-            }
+            base.OnPropertyChanged(change);
+            
         }
     }
 }

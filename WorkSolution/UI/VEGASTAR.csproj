@@ -57,7 +57,4 @@
     <ItemGroup>
       <ProjectReference Include="..\MshaControls\MshaControls.csproj" />
     </ItemGroup>
-    <ItemGroup>
-      <Content Include="Assets\Fonts\LICENSE.txt" />
-    </ItemGroup>
 </Project>

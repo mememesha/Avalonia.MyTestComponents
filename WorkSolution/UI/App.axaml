@@ -2,17 +2,26 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              x:Class="VEGASTAR.App">
 
+    <Application.Resources>
+        <FontFamily x:Key="RobotoLight">avares://VEGASTAR/Assets/Fonts/Roboto-Light.ttf#Roboto</FontFamily>
+        <FontFamily x:Key="RobotoRegular">avares://VEGASTAR/Assets/Fonts/Roboto-Regular.ttf#Roboto</FontFamily>
+        <FontFamily x:Key="RobotoMedium">avares://VEGASTAR/Assets/Fonts/Roboto-Medium.ttf#Roboto</FontFamily>
+        <FontFamily x:Key="RobotoBold">avares://VEGASTAR/Assets/Fonts/Roboto-Bold.ttf#Roboto</FontFamily>
+    </Application.Resources>
+    
     <Application.Styles>
+        <!-- Основной стиль -->
         <FluentTheme Mode="Light" />
-        <Style Selector="TextBlock">
-            <Setter Property="FontFamily" Value="avares://VEGASTAR/Assets/Fonts/Roboto-Light.ttf#Roboto" />
-        </Style>
-        <Style Selector="TextBlock.Awesome">
-            <Setter Property="FontFamily" Value="avares://VEGASTAR/Assets/Fonts/Font Awesome 6 Free-Regular-400.otf" />
-        </Style>
+        <!-- Свои контролы -->
         <StyleInclude Source="avares://VEGASTAR/Themes/Buttons.axaml" />
         <StyleInclude Source="avares://MshaControls/Controls/MonthChecked.axaml" />
         <StyleInclude Source="avares://MshaControls/Controls/YearsChecked.axaml" />
-        <StyleInclude Source="avares://MshaControls/HamburgerMenu/HamburgerMenu.axaml" />
+        <StyleInclude Source="avares://MshaControls/HamburgerMenu/HamburgerMenu.axaml"/>
+        
+        
+        <!-- Глобальные стили -->
+        <Style Selector="TextBlock">
+            <Setter Property="FontFamily" Value="avares://VEGASTAR/Assets/Fonts/Roboto-Light.ttf#Roboto" />
+        </Style>
     </Application.Styles>
 </Application>

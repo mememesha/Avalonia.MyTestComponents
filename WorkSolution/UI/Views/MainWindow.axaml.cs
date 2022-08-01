@@ -1,4 +1,5 @@
 using System;
+using Avalonia;
 using Avalonia.Markup.Xaml;
 using Avalonia.ReactiveUI;
 using ReactiveUI;
@@ -13,6 +14,9 @@ public partial class MainWindow : ReactiveWindow<MainWindowViewModel>
         this.WhenActivated(disposables => { });
         AvaloniaXamlLoader.Load(this);
         Opened += OnOpened;
+#if DEBUG
+        this.AttachDevTools();
+#endif    
     }
 
     private void OnOpened(object? sender, EventArgs e)
