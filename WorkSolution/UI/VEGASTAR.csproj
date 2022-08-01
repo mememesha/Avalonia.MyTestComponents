@@ -57,4 +57,7 @@
     <ItemGroup>
       <ProjectReference Include="..\MshaControls\MshaControls.csproj" />
     </ItemGroup>
+    <ItemGroup>
+      <Folder Include="Convertors" />
+    </ItemGroup>
 </Project>
