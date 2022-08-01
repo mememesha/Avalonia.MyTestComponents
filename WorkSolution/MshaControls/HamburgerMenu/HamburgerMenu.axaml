@@ -48,15 +48,13 @@
           <ToggleButton ZIndex="2" x:Name="HamburgerMenuButton"
                         Width="{StaticResource PaneCompactWidth}"
                         Height="{StaticResource HamburgerMenuButtonHeight}"
-                        Margin="4,2,0,0"
+                        Margin="0,2,0,0"
                         Padding="0"
                         Classes="NavigationButton"
                         HorizontalAlignment="Left"
                         VerticalAlignment="Top"
                         HorizontalContentAlignment="Center"
-                        CornerRadius="2"
                         IsChecked="{Binding #PART_NavigationPane.IsPaneOpen, Mode=TwoWay}">
-            
             
             <ToggleButton.Transitions>
               <Transitions>
@@ -71,7 +69,7 @@
                     <DrawingImage.Drawing>
                       <DrawingGroup ClipGeometry="M0,0 V512 H448 V0 H0 Z">
                         <GeometryDrawing
-                          Brush="{Binding Path=XForegraund, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type catalog:HamburgerMenu}}}" 
+                          Brush="White" 
                           Geometry="F1 M448,512z M0,0z M0,96C0,78.33,14.33,64,32,64L416,64C433.7,64 448,78.33 448,96 448,113.7 433.7,128 416,128L32,128C14.33,128,0,113.7,0,96z M0,256C0,238.3,14.33,224,32,224L416,224C433.7,224 448,238.3 448,256 448,273.7 433.7,288 416,288L32,288C14.33,288,0,273.7,0,256z M416,448L32,448C14.33,448 0,433.7 0,416 0,398.3 14.33,384 32,384L416,384C433.7,384 448,398.3 448,416 448,433.7 433.7,448 416,448z" >
                         </GeometryDrawing>
                       </DrawingGroup>
@@ -83,7 +81,7 @@
           </ToggleButton>
           <SplitView x:Name="PART_NavigationPane"
                      CompactPaneLength="{StaticResource PaneCompactWidth}"
-                     DisplayMode="Overlay"
+                     DisplayMode="CompactInline"
                      IsPaneOpen="False"
                      OpenPaneLength="{StaticResource PaneExpandWidth}">
             <SplitView.Pane>
@@ -101,8 +99,8 @@
                   >
                     <ItemsPresenter.ItemsPanel>
                       <ItemsPanelTemplate>
-                        <StackPanel x:Name="HamburgerItemsPanel"
-                                    Margin="0,2" Orientation="Vertical" />
+                        <StackPanel Spacing="0" x:Name="HamburgerItemsPanel"
+                                    Margin="0" Orientation="Vertical" />
                       </ItemsPanelTemplate>
                     </ItemsPresenter.ItemsPanel>
                   </ItemsPresenter>
@@ -153,7 +151,7 @@
   <Style Selector="catalog|HamburgerMenu /template/ SplitView">
     <Setter Property="PaneBackground" Value="Transparent" />
   </Style>
-  <Style Selector="catalog|HamburgerMenu /template/ SplitView[DisplayMode=Overlay]">
+  <Style Selector="catalog|HamburgerMenu /template/ SplitView[DisplayMode=CompactInline]">
     <Setter Property="PaneBackground" Value="{TemplateBinding PaneBackground}" />
   </Style>
   <Style Selector="catalog|HamburgerMenu /template/ SplitView[DisplayMode=Overlay]">
@@ -177,36 +175,38 @@
     <Setter Property="MinHeight" Value="0" />
     <Setter Property="Height" Value="{StaticResource NavigationItemHeight}" />
     <Setter Property="Background" Value="Transparent" />
-    <Setter Property="Padding" Value="12,0,4,0" />
-    <Setter Property="Margin" Value="4,0,8,0" />
-    <Setter Property="CornerRadius" Value="5" />
+    <Setter Property="Padding" Value="10,0,0,0" />
     <Setter Property="ClipToBounds" Value="False" />
   </Style>
   <Style Selector="catalog|HamburgerMenu > TabItem">
     <Setter Property="Template">
       <ControlTemplate>
         <Border Name="PART_LayoutRoot"
+                Margin="0"
+                Padding="0"
                 HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
                 Background="{TemplateBinding Background}"
                 BorderBrush="{TemplateBinding BorderBrush}"
-                BorderThickness="{TemplateBinding BorderThickness}"
-                CornerRadius="{TemplateBinding CornerRadius}">
-          <Panel>
+                BorderThickness="{TemplateBinding BorderThickness}">
+        <Panel>
             <Border Name="PART_SelectedPipe"
                     Width="{DynamicResource TabItemPipeThickness}"
-                    Height="{DynamicResource TabItemVerticalPipeHeight}"
-                    Margin="6,0,6,0"
+                    Height="{DynamicResource NavigationItemHeight}"
+                    Margin="0 2"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Center"
                     Background="{DynamicResource TabItemHeaderSelectedPipeFill}" />
             
             <ContentPresenter Name="PART_ContentPresenter"
+                              Height="{DynamicResource NavigationItemHeight}"
+                              Margin = "3 0 0 0"
                               TextBlock.FontFamily="{TemplateBinding FontFamily}"
                               TextBlock.FontSize="{TemplateBinding FontSize}"
-                              TextBlock.Foreground="{Binding $parent[TabControl].ContentOpeningForegraund}"
+                              TextBlock.Foreground="White"
+                              VerticalContentAlignment="Center"
                               Padding="{TemplateBinding Padding}"
                               HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                              VerticalAlignment="Center"
                               Content="{TemplateBinding Header}"
                               ContentTemplate="{TemplateBinding HeaderTemplate}" />
           </Panel>
@@ -236,14 +236,9 @@
   <Style Selector="catalog|HamburgerMenu > TabItem /template/ Border#PART_LayoutRoot, :is(Button).NavigationButton /template/ ContentPresenter">
     <Setter Property="Border.Background" Value="Transparent" />
   </Style>
-  <!-- <Style Selector="catalog|HamburgerMenu :is(ToggleButton)#HamburgerMenuButton:checked" > -->
-  <!--   <Setter Property="Foreground" Value="{Binding $parent[TabControl].ContentOpeningForegraund}" /> -->
-  <!--   <Setter Property="ZIndex" Value="2" /> -->
-  <!-- </Style> -->
-  <!-- <Style Selector="catalog|HamburgerMenu :is(ToggleButton)#HamburgerMenuButton:unchecked" > -->
-  <!--   <Setter Property="Foreground" Value="{Binding $parent[TabControl].ContentClosingForegraund}" /> -->
-  <!--   <Setter Property="ZIndex" Value="2" /> -->
-  <!-- </Style> -->
+  <Style Selector="catalog|HamburgerMenu > TabItem:selected /template/ ContentPresenter#PART_ContentPresenter">
+    <Setter Property="Background" Value="#21ffffff" />
+  </Style>
   <Style Selector="catalog|HamburgerMenu :is(Button)#HamburgerMenuButton:pressed" >
     <Setter Property="RenderTransform" Value="scale(1.1)" />
   </Style>
