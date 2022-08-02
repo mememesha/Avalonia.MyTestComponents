@@ -2,6 +2,7 @@ using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
 using ReactiveUI;
+using Splat;
 using VEGASTAR.ViewModels;
 using VEGASTAR.Views;
 
@@ -20,7 +21,7 @@ public class App : Application
         {
             desktop.MainWindow = new MainWindow
             {
-                DataContext = new MainWindowViewModel()
+                DataContext = Locator.Current.GetService<IScreen>()
             };
 
             RxApp.DefaultExceptionHandler = new GlobalErrorHandler();

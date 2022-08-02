@@ -37,12 +37,12 @@ internal class Program
         Bootstrapper.Register(Locator.CurrentMutable, Locator.Current);
 
         return AppBuilder.Configure<App>()
+            .UseReactiveUI()
             .UseAvaloniaNative()
             .UsePlatformDetect()
             .LogToTrace()
             .WithIcons(container => container
-                .Register<FontAwesomeIconProvider>())
-            .UseReactiveUI();
+                .Register<FontAwesomeIconProvider>());
     }
 
     public static void ConfigureLogger()

@@ -1,11 +1,13 @@
 ﻿<UserControl xmlns="https://github.com/avaloniaui"
-             xmlns:rxui="clr-namespace:Avalonia.ReactiveUI;assembly=Avalonia.ReactiveUI"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:controlSamples="clr-namespace:ControlSamples;assembly=MshaControls"
              xmlns:i="clr-namespace:Projektanker.Icons.Avalonia;assembly=Projektanker.Icons.Avalonia"
              xmlns:system="clr-namespace:System;assembly=System.Runtime"
+             xmlns:reactiveUi="http://reactiveui.net"
+             xmlns:views="clr-namespace:VEGASTAR.Views"
+             xmlns:pages="clr-namespace:VEGASTAR.ViewModels.Pages"
              mc:Ignorable="d" d:DesignWidth="1300" d:DesignHeight="800"
              x:Class="VEGASTAR.Views.SubRouteUserControl">
 
@@ -33,7 +35,7 @@
                     </Grid>
                 </DataTemplate>
             </TabItem.HeaderTemplate>
-            <rxui:RoutedViewHost Margin="0 -5 0 0" ZIndex="0" Router="{Binding Router}" />
+            <views:Page1/> 
         </TabItem>
         <TabItem Header="Карты">
             <TabItem.HeaderTemplate>
@@ -46,20 +48,5 @@
                 </DataTemplate>
             </TabItem.HeaderTemplate>
         </TabItem>
-        
     </controlSamples:HamburgerMenu>
-    
-    <!--<Grid RowDefinitions="Auto,*">     
-        <controls:ApplicationMenu Margin="0" ZIndex="1" Height="65">
-            <controls:ApplicationMenu.Background>
-                <LinearGradientBrush StartPoint="50%,0%" EndPoint="50%,100%">
-                    <LinearGradientBrush.GradientStops>
-                        <GradientStop Offset="0" Color="#536976" />
-                        <GradientStop Offset="0.9" Color="#292e49" />
-                        <GradientStop Offset="1" Color="Transparent" />
-                    </LinearGradientBrush.GradientStops>
-                </LinearGradientBrush>
-            </controls:ApplicationMenu.Background>
-        </controls:ApplicationMenu>
-    </Grid>-->
 </UserControl>
