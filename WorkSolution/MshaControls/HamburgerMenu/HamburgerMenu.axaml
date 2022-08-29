@@ -1,12 +1,12 @@
 ﻿<Styles xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:catalog="using:ControlSamples"
-        xmlns:sys="using:System">
+        xmlns:sys="using:System"
+        xmlns:hamburgerMenu="clr-namespace:MshaControls.HamburgerMenu">
  
   <Design.PreviewWith>
     <Border Background="Transparent" Width="600"
             Height="550">
-      <catalog:HamburgerMenu>
+      <hamburgerMenu:HamburgerMenu>
         <FlyoutBase.AttachedFlyout>
           <Flyout>
           </Flyout>
@@ -17,7 +17,7 @@
           </UserControl>
         </TabItem>
         <TabItem Header="Item2" />
-      </catalog:HamburgerMenu>
+      </hamburgerMenu:HamburgerMenu>
     </Border>
   </Design.PreviewWith>
 
@@ -37,7 +37,7 @@
   </Styles.Resources>
   
   <!--  HamburgerMenu  -->
-  <Style Selector="catalog|HamburgerMenu">
+  <Style Selector="hamburgerMenu|HamburgerMenu">
     <Setter Property="Padding" Value="12 8 4 0" />
     <Setter Property="PaneBackground" Value="#2d3047" />
     <Setter Property="Background" Value="Transparent" />
@@ -139,34 +139,34 @@
     </Setter>
   </Style>
 
-  <Style Selector="catalog|HamburgerMenu /template/ SplitView TextBlock#HeaderHolder">
+  <Style Selector="hamburgerMenu|HamburgerMenu /template/ SplitView TextBlock#HeaderHolder">
     <Setter Property="Margin" Value="{StaticResource HeaderMarginExpandedPane}" />
   </Style>
-  <Style Selector="catalog|HamburgerMenu /template/ SplitView[IsPaneOpen=True] TextBlock#HeaderHolder">
+  <Style Selector="hamburgerMenu|HamburgerMenu /template/ SplitView[IsPaneOpen=True] TextBlock#HeaderHolder">
     <Setter Property="Margin" Value="{StaticResource HeaderMarginCollapsedPane}" />
   </Style>
-  <Style Selector="catalog|HamburgerMenu /template/ SplitView[DisplayMode=Overlay][IsPaneOpen=True] TextBlock#HeaderHolder">
+  <Style Selector="hamburgerMenu|HamburgerMenu /template/ SplitView[DisplayMode=Overlay][IsPaneOpen=True] TextBlock#HeaderHolder">
     <Setter Property="Margin" Value="{StaticResource HeaderMarginExpandedOverlayPane}" />
   </Style>
-  <Style Selector="catalog|HamburgerMenu /template/ SplitView">
+  <Style Selector="hamburgerMenu|HamburgerMenu /template/ SplitView">
     <Setter Property="PaneBackground" Value="Transparent" />
   </Style>
-  <Style Selector="catalog|HamburgerMenu /template/ SplitView[DisplayMode=CompactInline]">
+  <Style Selector="hamburgerMenu|HamburgerMenu /template/ SplitView[DisplayMode=CompactInline]">
     <Setter Property="PaneBackground" Value="{TemplateBinding PaneBackground}" />
   </Style>
-  <Style Selector="catalog|HamburgerMenu /template/ SplitView[DisplayMode=Overlay]">
+  <Style Selector="hamburgerMenu|HamburgerMenu /template/ SplitView[DisplayMode=Overlay]">
     <Setter Property="Background" Value="{Binding $parent[TabControl].ContentBackground}" />
   </Style>
-  <Style Selector="catalog|HamburgerMenu /template/ SplitView[DisplayMode=Inline] Border#BackgroundBorder">
+  <Style Selector="hamburgerMenu|HamburgerMenu /template/ SplitView[DisplayMode=Inline] Border#BackgroundBorder">
     <Setter Property="Background" Value="{Binding $parent[TabControl].ContentBackground}" />
     <Setter Property="BoxShadow" Value="{StaticResource NavigationContentShadow}" />
   </Style>
-  <Style Selector="catalog|HamburgerMenu /template/ SplitView[DisplayMode=Inline][IsPaneOpen=True] Border#BackgroundBorder">
+  <Style Selector="hamburgerMenu|HamburgerMenu /template/ SplitView[DisplayMode=Inline][IsPaneOpen=True] Border#BackgroundBorder">
     <Setter Property="CornerRadius" Value="1 0 0 0" />
   </Style>
 
   <!--  HamburgerMenu TabItem  -->
-  <Style Selector="catalog|HamburgerMenu > TabItem, :is(Button).NavigationButton">
+  <Style Selector="hamburgerMenu|HamburgerMenu > TabItem, :is(Button).NavigationButton">
     <Setter Property="HorizontalContentAlignment" Value="Stretch" />
     <Setter Property="VerticalContentAlignment" Value="Center" />
     <Setter Property="HorizontalAlignment" Value="Stretch" />
@@ -178,7 +178,7 @@
     <Setter Property="Padding" Value="10,0,0,0" />
     <Setter Property="ClipToBounds" Value="False" />
   </Style>
-  <Style Selector="catalog|HamburgerMenu > TabItem">
+  <Style Selector="hamburgerMenu|HamburgerMenu > TabItem">
     <Setter Property="Template">
       <ControlTemplate>
         <Border Name="PART_LayoutRoot"
@@ -233,13 +233,13 @@
       </ControlTemplate>
     </Setter>
   </Style>
-  <Style Selector="catalog|HamburgerMenu > TabItem /template/ Border#PART_LayoutRoot, :is(Button).NavigationButton /template/ ContentPresenter">
+  <Style Selector="hamburgerMenu|HamburgerMenu > TabItem /template/ Border#PART_LayoutRoot, :is(Button).NavigationButton /template/ ContentPresenter">
     <Setter Property="Border.Background" Value="Transparent" />
   </Style>
-  <Style Selector="catalog|HamburgerMenu > TabItem:selected /template/ ContentPresenter#PART_ContentPresenter">
+  <Style Selector="hamburgerMenu|HamburgerMenu > TabItem:selected /template/ ContentPresenter#PART_ContentPresenter">
     <Setter Property="Background" Value="#21ffffff" />
   </Style>
-  <Style Selector="catalog|HamburgerMenu :is(Button)#HamburgerMenuButton:pressed" >
+  <Style Selector="hamburgerMenu|HamburgerMenu :is(Button)#HamburgerMenuButton:pressed" >
     <Setter Property="RenderTransform" Value="scale(1.1)" />
   </Style>
 </Styles>

@@ -6,12 +6,15 @@
              xmlns:reactiveUi="http://reactiveui.net"
              mc:Ignorable="d" d:DesignWidth="1200" d:DesignHeight="550" Background="Transparent"
              x:Class="VEGASTAR.Views.AdisLocalStorage">
-    
     <Grid RowDefinitions="Auto,*" ColumnDefinitions="Auto,*">
         <Grid Grid.Column="1" RowDefinitions="Auto,Auto" HorizontalAlignment="Center" VerticalAlignment="Top" >
             <msch:MonthChecked x:Name="MonthCheckedControl" Margin="0 5 0 0" Grid.Row="0" SelectedItem="{Binding SelectedMonth}" />
             <msch:YearsChecked Margin="10 4 0 0"  Grid.Row="1" HorizontalAlignment="Center" SelectedItem="{Binding SelectedYear}" />
         </Grid>
-        <reactiveUi:RoutedViewHost Grid.Column="1" Router="{Binding Router}" Grid.Row="1" />
+        <reactiveUi:RoutedViewHost Grid.Column="1" PageTransition="{x:Null}" Router="{Binding Router}" Grid.Row="1">
+            <reactiveUi:RoutedViewHost.DefaultContent>
+                <TextBlock Margin="50">Загрузка...</TextBlock>
+            </reactiveUi:RoutedViewHost.DefaultContent>
+        </reactiveUi:RoutedViewHost>
     </Grid>
 </UserControl>

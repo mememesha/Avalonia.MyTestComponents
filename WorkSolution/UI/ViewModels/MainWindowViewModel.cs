@@ -1,9 +1,14 @@
 ﻿using ReactiveUI;
-using Splat;
 
 namespace VEGASTAR.ViewModels;
 
-public class MainWindowViewModel : ReactiveObject, IScreen, IEnableLogger
+public class MainWindowViewModel : ReactiveObject, IScreen
 {
-    public RoutingState Router { get; } = new();
+    private RoutingState _router = new RoutingState();
+    
+    public RoutingState Router
+    {
+        get => _router;
+        set => this.RaiseAndSetIfChanged(ref _router, value);
+    }
 }

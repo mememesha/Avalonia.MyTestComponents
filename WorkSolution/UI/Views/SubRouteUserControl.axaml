@@ -2,13 +2,11 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:controlSamples="clr-namespace:ControlSamples;assembly=MshaControls"
              xmlns:i="clr-namespace:Projektanker.Icons.Avalonia;assembly=Projektanker.Icons.Avalonia"
              xmlns:system="clr-namespace:System;assembly=System.Runtime"
-             xmlns:reactiveUi="http://reactiveui.net"
              xmlns:views="clr-namespace:VEGASTAR.Views"
-             xmlns:pages="clr-namespace:VEGASTAR.ViewModels.Pages"
-             mc:Ignorable="d" d:DesignWidth="1300" d:DesignHeight="800"
+             xmlns:controlSamples="clr-namespace:MshaControls.HamburgerMenu;assembly=MshaControls"
+             mc:Ignorable="d" d:DesignWidth="1300" d:DesignHeight="500"
              x:Class="VEGASTAR.Views.SubRouteUserControl">
 
     <UserControl.Resources>
@@ -25,28 +23,29 @@
     <controlSamples:HamburgerMenu
         ContentOpeningForegraund="WhiteSmoke"
         ContentClosingForegraund="#2d3047">
-        <TabItem Header="Загрузка" IsSelected="True">
+        <TabItem Header="Загрузка">
             <TabItem.HeaderTemplate>
                 <DataTemplate>
                     <Grid ColumnDefinitions="Auto,*">
-                        <i:Icon VerticalAlignment="Center" Grid.Column="0" Foreground="{Binding #Caption.Foreground}" Margin="-2 0 0 0"
+                        <i:Icon VerticalAlignment="Center" Grid.Column="0" Margin="-2 0 0 0"
                                 HorizontalAlignment="Left" FontSize="18" Value="fa-solid fa-database" />
                         <TextBlock VerticalAlignment="Center" Grid.Column="1" FontSize="20" Margin="11 0 0 0" Text="{Binding}"/> 
                     </Grid>
                 </DataTemplate>
             </TabItem.HeaderTemplate>
-            <views:Page1/> 
+            <views:AdisLocalStorage/> 
         </TabItem>
         <TabItem Header="Карты">
             <TabItem.HeaderTemplate>
                 <DataTemplate>
                     <Grid ColumnDefinitions="Auto,*">
-                        <i:Icon VerticalAlignment="Center" Grid.Column="0" Foreground="{Binding #Caption.Foreground}" Margin="-2 0 0 0"
+                        <i:Icon VerticalAlignment="Center" Grid.Column="0" Margin="-2 0 0 0"
                                 HorizontalAlignment="Left" FontSize="18" Value="fa-solid fa-file-arrow-up" />
                         <TextBlock VerticalAlignment="Center" Grid.Column="1" FontSize="20" Margin="11 0 0 0" Text="{Binding}"/> 
                     </Grid>
                 </DataTemplate>
             </TabItem.HeaderTemplate>
+            <TextBlock>asdasdasdasdas</TextBlock>
         </TabItem>
     </controlSamples:HamburgerMenu>
 </UserControl>

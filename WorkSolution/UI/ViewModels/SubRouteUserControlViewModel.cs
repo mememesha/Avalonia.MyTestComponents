@@ -1,14 +1,15 @@
 ﻿using System;
 using ReactiveUI;
+using Splat;
 
 
 namespace VEGASTAR.ViewModels;
 
-public class SubRouteUserControlViewModel : ReactiveObject, IRoutableViewModel
+public class SubRouteUserControlViewModel : ReactiveObject, IRoutableViewModel, IEnableLogger
 {
     public IScreen HostScreen { get; }
     
-    public SubRouteUserControlViewModel(IScreen screen)
+    public SubRouteUserControlViewModel(IScreen screen = null)
     {
         HostScreen = screen;
     }

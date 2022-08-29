@@ -1,15 +1,22 @@
 ﻿using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Controls.Primitives;
-using Avalonia.Data;
+using Avalonia.Input;
 using Avalonia.Media;
+using Avalonia.Platform;
+using Avalonia.Threading;
 
-namespace ControlSamples
+namespace MshaControls.HamburgerMenu
 {
     public class HamburgerMenu : TabControl
     {
         private SplitView? _splitView;
         private ToggleButton? _homeButton;
+        private Timer timer;
+        
+        public static Dispatcher UIThread { get; } =
+            new Dispatcher(AvaloniaLocator.Current.GetService<IPlatformThreadingInterface>());
+
         
         public static readonly StyledProperty<IBrush> PaneBackgroundProperty =
             SplitView.PaneBackgroundProperty.AddOwner<HamburgerMenu>();
@@ -73,15 +80,29 @@ namespace ControlSamples
             _splitView.PaneClosing += SplitViewOnPaneClosed;
             _splitView.PaneOpened += SplitViewOnPaneOpened;
         }
-
         private void SplitViewOnPaneOpened(object? sender, EventArgs e)
         {
             XForegraund = ContentOpeningForegraund;
+            timer?.Dispose();
+            timer = new Timer(closeFormCallBack, null, 5000,5000);
         }
 
-        private async void SplitViewOnPaneClosed(object? sender, EventArgs e)
+        private void closeFormCallBack(object? state)
+        {
+            UIThread.InvokeAsync(() =>
+            {
+                if (!((_splitView!.Pane as Control)!).IsPointerOver && _splitView.IsPaneOpen)
+                {
+                    _splitView.IsPaneOpen = false;
+                    timer?.Dispose();
+                }
+            }).GetAwaiter().GetResult();
+        }
+        
+        private void SplitViewOnPaneClosed(object? sender, EventArgs e)
         {
             XForegraund = ContentClosingForegraund;
+            timer?.Dispose();
         }
 
 
