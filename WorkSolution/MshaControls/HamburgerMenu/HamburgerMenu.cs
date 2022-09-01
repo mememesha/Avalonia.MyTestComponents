@@ -1,7 +1,6 @@
 ﻿using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Controls.Primitives;
-using Avalonia.Input;
 using Avalonia.Media;
 using Avalonia.Platform;
 using Avalonia.Threading;
@@ -12,7 +11,7 @@ namespace MshaControls.HamburgerMenu
     {
         private SplitView? _splitView;
         private ToggleButton? _homeButton;
-        private Timer timer;
+        private Timer? timer;
         
         public static Dispatcher UIThread { get; } =
             new Dispatcher(AvaloniaLocator.Current.GetService<IPlatformThreadingInterface>());
@@ -103,13 +102,6 @@ namespace MshaControls.HamburgerMenu
         {
             XForegraund = ContentClosingForegraund;
             timer?.Dispose();
-        }
-
-
-        protected override void OnPropertyChanged<T>(AvaloniaPropertyChangedEventArgs<T> change)
-        {
-            base.OnPropertyChanged(change);
-            
         }
     }
 }
