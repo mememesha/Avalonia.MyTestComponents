@@ -190,7 +190,8 @@
                 BorderThickness="{TemplateBinding BorderThickness}">
         <Panel>
             <Border Name="PART_SelectedPipe"
-                    Width="{DynamicResource TabItemPipeThickness}"
+                    Width="3.5"
+                    CornerRadius="15"
                     Height="{DynamicResource NavigationItemHeight}"
                     Margin="0 2"
                     HorizontalAlignment="Left"
@@ -199,7 +200,7 @@
             
             <ContentPresenter Name="PART_ContentPresenter"
                               Height="{DynamicResource NavigationItemHeight}"
-                              Margin = "3 0 0 0"
+                              Margin = "3.6 0 0 0"
                               TextBlock.FontFamily="{TemplateBinding FontFamily}"
                               TextBlock.FontSize="{TemplateBinding FontSize}"
                               TextBlock.Foreground="White"

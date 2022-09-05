@@ -7,17 +7,22 @@
         <FontFamily x:Key="RobotoRegular">avares://VEGASTAR/Assets/Fonts/Roboto-Regular.ttf#Roboto</FontFamily>
         <FontFamily x:Key="RobotoMedium">avares://VEGASTAR/Assets/Fonts/Roboto-Medium.ttf#Roboto</FontFamily>
         <FontFamily x:Key="RobotoBold">avares://VEGASTAR/Assets/Fonts/Roboto-Bold.ttf#Roboto</FontFamily>
+        <SolidColorBrush x:Key="Color1" Color="#1B1B1B" />
+        <SolidColorBrush x:Key="Color2" Color="#EEFFFD" />
     </Application.Resources>
     
     <Application.Styles>
-        <!-- Основной стиль -->
-        <FluentTheme Mode="Light" />
+        <FluentTheme Mode="Dark"/>
+        <!-- Основной стиль 
+          
+        />-->
         <!-- Свои контролы -->
+      
         <StyleInclude Source="avares://VEGASTAR/Themes/Buttons.axaml" />
         <StyleInclude Source="avares://MshaControls/Controls/MonthChecked.axaml" />
         <StyleInclude Source="avares://MshaControls/Controls/YearsChecked.axaml" />
         <StyleInclude Source="avares://MshaControls/HamburgerMenu/HamburgerMenu.axaml"/>
-        
+        <StyleInclude Source="avares://MshaControls/Controls/RoundedWindow.axaml"/>
         
         <!-- Глобальные стили -->
         <Style Selector="TextBlock">

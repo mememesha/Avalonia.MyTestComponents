@@ -16,6 +16,7 @@ public class Bootstrapper : IEnableLogger
         services.RegisterConstant(AddJsonConfiguration("appsettings.json"));
         Locator.CurrentMutable.RegisterConstant<IScreen>(new MainWindowViewModel());
         services.Register(() => new SubRouteUserControl(), typeof(IViewFor<SubRouteUserControlViewModel>));
+        services.Register(()=> new Autorization(),typeof(IViewFor<AutorizationViewModel>) );
         services.Register(() => new DarchView(), typeof(IViewFor<DarchViewModel>));
         services.UseSerilogFullLogger();
         LogHost.Default.Info("Application Starting...");
